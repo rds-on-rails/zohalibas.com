@@ -67,3 +67,8 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+frontend/.next/
+functions/lib/
+node_modules/
+functions/node_modules/
