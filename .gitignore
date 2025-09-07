@@ -72,3 +72,4 @@ frontend/.next/
 functions/lib/
 node_modules/
 functions/node_modules/
+functions/package-lock.json

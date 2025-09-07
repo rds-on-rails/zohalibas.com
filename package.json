@@ -2,13 +2,13 @@
   "name": "retail-shop-system",
   "version": "1.0.0",
   "description": "Retail shop management system for daily sales and expenses tracking",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
     "generate": "prisma generate",
     "seed": "ts-node prisma/seed.ts",
-    "dev": "ts-node src/index.ts"
+    "dev": "echo Use 'npm --prefix frontend run dev' to start the frontend; functions are deployed."
   },
   "dependencies": {
     "@google-cloud/storage": "^7.17.0",
@@ -29,5 +29,8 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.1",
     "@types/uuid": "^10.0.0"
+  },
+  "engines": {
+    "node": "22"
   }
 }
