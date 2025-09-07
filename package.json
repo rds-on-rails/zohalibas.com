@@ -1,0 +1,33 @@
+{
+  "name": "retail-shop-system",
+  "version": "1.0.0",
+  "description": "Retail shop management system for daily sales and expenses tracking",
+  "main": "index.js",
+  "scripts": {
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "generate": "prisma generate",
+    "seed": "ts-node prisma/seed.ts",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.17.0",
+    "@google-cloud/vision": "^5.3.3",
+    "@prisma/client": "^5.0.0",
+    "axios": "^1.11.0",
+    "node-fetch": "^3.3.2",
+    "prisma": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0",
+    "uuid": "^12.0.0"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "@types/uuid": "^10.0.0"
+  }
+}

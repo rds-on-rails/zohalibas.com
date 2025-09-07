@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "retail-shop-9bc30",
+    "staging": "retail-shop-9bc30"
+  },
+  "targets": {},
+  "etags": {}
+}

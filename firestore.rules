@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(r) {
+      return isSignedIn() && request.auth.token.role == r;
+    }
+
+    function isOwnerOrManager() {
+      return isSignedIn() && (request.auth.token.role == 'owner' || request.auth.token.role == 'manager');
+    }
+
+    // Deny all direct writes by default; only Cloud Functions should write
+    match /{document=**} {
+      allow read: if isSignedIn();
+      allow write, update, delete: if false; // force writes via Cloud Functions
+    }
+
+    // whatsapp_inbox contains raw messages and metadata
+    match /whatsapp_inbox/{wamId} {
+      allow read: if isOwnerOrManager();
+      allow write, update, delete: if false;
+    }
+
+    // attachments metadata (download URLs, storagePath)
+    match /attachments/{attachId} {
+      allow read: if isOwnerOrManager();
+      allow write, update, delete: if false;
+    }
+
+    // auditLogs read for owner/manager only
+    match /auditLogs/{logId} {
+      allow read: if isOwnerOrManager();
+      allow write: if false;
+    }
+  }
+}
