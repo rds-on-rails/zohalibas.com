@@ -39,33 +39,82 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen grid place-items-center p-4">
-      <div className="w-full max-w-md rounded-xl border p-6 shadow-sm">
-        <h1 className="text-2xl font-semibold text-center mb-6">Sign In</h1>
-        <form onSubmit={onSubmit} className="grid gap-4">
-          <div className="grid gap-2">
-            <label className="text-sm font-medium">Email Address</label>
-            <input type="email" className="border rounded-md px-3 py-2" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-medium">Password</label>
-            <input type="password" className="border rounded-md px-3 py-2" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          </div>
-          {error ? <p className="text-sm text-red-600">{error}</p> : null}
-          <button disabled={loading} className="rounded-md bg-indigo-600 text-white py-2 hover:bg-indigo-700 disabled:opacity-60">{loading ? 'Signing in...' : 'Sign In'}</button>
-        </form>
-
-        <div className="my-4 grid grid-cols-[1fr_auto_1fr] items-center gap-2 text-gray-500">
-          <span className="h-px bg-gray-200" />
-          <span className="text-xs">OR</span>
-          <span className="h-px bg-gray-200" />
+    <div className="min-h-screen bg-white flex items-center justify-center px-4">
+      <div className="w-full max-w-sm">
+        {/* Header */}
+        <div className="text-left mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Sign In</h1>
         </div>
 
-        <button onClick={onGoogle} disabled={loading} className="w-full rounded-md border py-2 hover:bg-gray-50">Sign in with Google</button>
+        {/* Form */}
+        <form onSubmit={onSubmit} className="space-y-6">
+          <div>
+            <label className="form-label">Email Address</label>
+            <input 
+              type="email" 
+              className="input-field" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
+          </div>
+          
+          <div>
+            <label className="form-label">Password</label>
+            <input 
+              type="password" 
+              className="input-field" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
+            />
+          </div>
 
-        <p className="mt-4 text-center text-sm text-gray-600">Need an account? <Link className="text-indigo-600 hover:underline" href="/auth/signup">Sign Up</Link></p>
+          {error && (
+            <div className="text-sm text-red-600 bg-red-50 p-3 rounded-md">
+              {error}
+            </div>
+          )}
+
+          <button 
+            type="submit"
+            disabled={loading} 
+            className="btn-primary"
+          >
+            {loading ? 'Signing in...' : 'Sign In'}
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="my-6 flex items-center">
+          <div className="flex-1 border-t border-gray-200"></div>
+          <span className="px-3 text-sm text-gray-500">OR</span>
+          <div className="flex-1 border-t border-gray-200"></div>
+        </div>
+
+        {/* Google Sign In */}
+        <button 
+          onClick={onGoogle} 
+          disabled={loading} 
+          className="btn-secondary"
+        >
+          Sign in with Google
+        </button>
+
+        {/* Footer */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-600">
+            Need an account?{' '}
+            <Link 
+              href="/auth/signup" 
+              className="text-black font-medium hover:underline"
+            >
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
 

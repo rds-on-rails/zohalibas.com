@@ -1,5 +1,6 @@
 import './globals.css'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { StaffProvider } from '@/contexts/StaffContext'
 import ClientGuard from './ClientGuard'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -7,7 +8,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <AuthProvider>
-          <ClientGuard>{children}</ClientGuard>
+          <StaffProvider>
+            <ClientGuard>{children}</ClientGuard>
+          </StaffProvider>
         </AuthProvider>
       </body>
     </html>
