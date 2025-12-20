@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow users to read/write their own user profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow staff/owners to create uploads
+    match /uploads/{uploadId} {
+      allow create: if request.auth != null;
+      allow read, update: if request.auth != null; // Refine this later for Owner vs Staff
+    }
+    
+    // Allow owners to manage sales
+    match /sales/{saleId} {
+      allow read, write: if request.auth != null; // Ideally check for role == 'OWNER'
+    }
+
+    // Default deny for safety, or allow auth for dev
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

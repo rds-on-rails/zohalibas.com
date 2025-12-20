@@ -1,0 +1,14 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow authenticated users to upload receipts to their own folder
+    match /receipts/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    // Fallback: Allow authenticated users to read/write everything (simplest for dev)
+    // Comment out the above and uncomment below if you run into specific path issues
+    // match /{allPaths=**} {
+    //   allow read, write: if request.auth != null;
+    // }
+  }
+}
