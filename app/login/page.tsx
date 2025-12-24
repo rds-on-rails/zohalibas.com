@@ -29,10 +29,12 @@ export default function LoginPage() {
         <div className="flex min-h-[calc(100vh-8rem)] w-full items-center justify-center p-4 bg-gray-50/50">
             <Card className="w-full max-w-md border-gray-100 shadow-2xl shadow-gray-200/60 rounded-3xl overflow-hidden">
                 <CardHeader className="text-center bg-white pb-8 pt-10">
-                    <div className="mx-auto w-20 h-20 bg-black rounded-full flex items-center justify-center border-2 border-[#B5A280] shadow-xl mb-6">
-                        <span className="text-xs text-white font-serif font-bold text-center leading-tight uppercase px-1">
-                            Zoha<br />Libas
-                        </span>
+                    <div className="mx-auto w-24 h-24 mb-6 transition-transform hover:scale-105">
+                        <img
+                            src="/logo.jpg"
+                            alt="Zoha Libas"
+                            className="w-full h-full rounded-full border-2 border-[#B5A280] shadow-xl object-cover"
+                        />
                     </div>
                     <CardTitle className="text-3xl font-serif font-bold text-[#7C0000] uppercase tracking-wider">Welcome back</CardTitle>
                     <CardDescription className="text-gray-500 mt-2 italic">Sign in to manage the Zoha Libas legacy.</CardDescription>

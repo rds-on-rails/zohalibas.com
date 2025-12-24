@@ -64,6 +64,7 @@ export interface Sale {
     online: number;
     expenses: number;
     net: number; // Calculated: cash + online - expenses
+    items?: ExtractedLine[];
     sourceUploadId: string;
     approvedBy: string;
     approvedAt: number;

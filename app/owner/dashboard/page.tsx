@@ -155,6 +155,7 @@ export default function OwnerDashboard() {
                 online,
                 expenses,
                 net: cash + online - expenses,
+                items: editableLines,
                 sourceUploadId: selectedUpload.id,
                 approvedBy: user.uid,
                 approvedAt: Date.now()
@@ -337,20 +338,32 @@ export default function OwnerDashboard() {
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-50">
-                                            {dailySales.map((sale) => (
-                                                <tr key={sale.id} className="hover:bg-gray-50/50 transition-colors">
-                                                    <td className="px-6 py-4">
-                                                        <span className="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded-md border border-green-100 lowercase">verified</span>
-                                                    </td>
-                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.cash.toLocaleString()}</td>
-                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.online.toLocaleString()}</td>
-                                                    <td className="px-6 py-4 text-right font-mono text-red-500">₹{sale.expenses.toLocaleString()}</td>
-                                                    <td className="px-6 py-4 text-right font-mono font-bold text-gray-900 border-l border-gray-50">₹{sale.net.toLocaleString()}</td>
-                                                </tr>
-                                            ))}
-                                            {dailySales.length === 0 && (
+                                            {dailySales.flatMap(sale => (sale.items || [])).length > 0 ? (
+                                                dailySales.flatMap(sale => (sale.items || []).map((item, idx) => (
+                                                    <tr key={`${sale.id}-${idx}`} className="hover:bg-gray-50/50 transition-colors">
+                                                        <td className="px-6 py-4">
+                                                            <div className="flex flex-col gap-1">
+                                                                <span className="font-medium text-gray-900">{item.content}</span>
+                                                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider lowercase">from sheet {sale.date}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td className="px-6 py-4 text-right font-mono text-gray-700">
+                                                            {item.classification === 'CASH_SALE' ? `₹${item.amount?.toLocaleString()}` : '-'}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-right font-mono text-gray-700">
+                                                            {item.classification === 'ONLINE_SALE' ? `₹${item.amount?.toLocaleString()}` : '-'}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-right font-mono text-red-500">
+                                                            {item.classification === 'EXPENSE' ? `₹${item.amount?.toLocaleString()}` : '-'}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-right font-mono font-bold text-gray-900 border-l border-gray-50">
+                                                            {item.classification === 'EXPENSE' ? `-₹${item.amount?.toLocaleString()}` : `₹${item.amount?.toLocaleString()}`}
+                                                        </td>
+                                                    </tr>
+                                                )))
+                                            ) : (
                                                 <tr>
-                                                    <td colSpan={5} className="px-6 py-20 text-center text-gray-400 italic">No approved sales for this date.</td>
+                                                    <td colSpan={5} className="px-6 py-20 text-center text-gray-400 italic">No individual entries found for this date.</td>
                                                 </tr>
                                             )}
                                         </tbody>

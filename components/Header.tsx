@@ -27,11 +27,13 @@ export function Header() {
             {/* Top Tier */}
             <div className="container mx-auto w-full bg-white py-4 px-6 flex justify-between items-center">
                 <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center border-2 border-[#B5A280] shadow-md transition-transform hover:rotate-6">
-                        <span className="text-[11px] text-white font-serif font-bold text-center leading-tight uppercase px-1">
-                            Zoha<br />Libas
-                        </span>
-                    </div>
+                    <Link href="/" className="transition-transform hover:scale-105 active:scale-95">
+                        <img
+                            src="/logo.jpg"
+                            alt="Zoha Libas"
+                            className="w-20 h-20 rounded-full border-2 border-[#B5A280] shadow-md object-cover"
+                        />
+                    </Link>
                     <h1 className="text-3xl md:text-5xl font-serif font-bold text-[#4a0404] tracking-tighter uppercase drop-shadow-sm">
                         Zoha Libas Center
                     </h1>
