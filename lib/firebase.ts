@@ -14,9 +14,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase (singleton pattern)
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+// On server-side SSR, we check if projectId exists before initializing to avoid "app does not exist" errors
+const app = (getApps().length > 0)
+    ? getApp()
+    : (firebaseConfig.projectId ? initializeApp(firebaseConfig) : null);
+
+const auth = app ? getAuth(app) : null as any;
+const db = app ? getFirestore(app) : null as any;
+const storage = app ? getStorage(app) : null as any;
 
 export { app, auth, db, storage };

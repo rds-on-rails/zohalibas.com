@@ -26,21 +26,26 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="flex h-screen w-full items-center justify-center p-4">
-            <Card className="w-full max-w-md">
-                <CardHeader>
-                    <CardTitle>Welcome to Verve</CardTitle>
-                    <CardDescription>Sign in to access the sales dashboard.</CardDescription>
+        <div className="flex min-h-[calc(100vh-8rem)] w-full items-center justify-center p-4 bg-gray-50/50">
+            <Card className="w-full max-w-md border-gray-100 shadow-2xl shadow-gray-200/60 rounded-3xl overflow-hidden">
+                <CardHeader className="text-center bg-white pb-8 pt-10">
+                    <div className="mx-auto w-20 h-20 bg-black rounded-full flex items-center justify-center border-2 border-[#B5A280] shadow-xl mb-6">
+                        <span className="text-xs text-white font-serif font-bold text-center leading-tight uppercase px-1">
+                            Zoha<br />Libas
+                        </span>
+                    </div>
+                    <CardTitle className="text-3xl font-serif font-bold text-[#7C0000] uppercase tracking-wider">Welcome back</CardTitle>
+                    <CardDescription className="text-gray-500 mt-2 italic">Sign in to manage the Zoha Libas legacy.</CardDescription>
                 </CardHeader>
-                <CardContent className="flex justify-center py-6">
+                <CardContent className="flex justify-center py-10 px-8">
                     <Button
                         onClick={handleLogin}
-                        className="w-full flex gap-2"
+                        className="w-full h-14 flex gap-4 text-lg font-bold border-2 border-gray-100 hover:border-[#7C0000]/20 hover:bg-[#7C0000]/5 transition-all rounded-2xl shadow-sm text-gray-700"
                         disabled={loading}
                         variant="outline"
                     >
                         {/* Simple Google G Icon */}
-                        <svg className="h-5 w-5" viewBox="0 0 24 24">
+                        <svg className="h-6 w-6" viewBox="0 0 24 24">
                             <path
                                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                                 fill="#4285F4"
@@ -58,9 +63,12 @@ export default function LoginPage() {
                                 fill="#EA4335"
                             />
                         </svg>
-                        {loading ? "Signing in..." : "Sign in with Google"}
+                        {loading ? "Establishing session..." : "Sign in with Google"}
                     </Button>
                 </CardContent>
+                <CardFooter className="bg-gray-50/50 py-6 border-t border-gray-100">
+                    <p className="text-[10px] text-gray-400 text-center w-full uppercase tracking-[0.2em]">Authorized Access Only</p>
+                </CardFooter>
             </Card>
         </div>
     );

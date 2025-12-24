@@ -79,35 +79,28 @@ export default function StaffUploadPage() {
     };
 
     return (
-        <div className="flex flex-col items-center p-4 max-w-lg mx-auto min-h-screen justify-center">
-            <div className="w-full flex justify-between items-center mb-6">
-                <div className="flex flex-col">
-                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Staff Session</span>
-                    <span className="text-sm font-medium text-white">{user?.displayName || user?.email?.split('@')[0]}</span>
-                </div>
-                <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-muted-foreground hover:bg-red-500/10 hover:text-red-400">Sign Out</Button>
-            </div>
-            <Card className="w-full border-border/60">
-                <CardHeader>
-                    <CardTitle>Daily Sales Upload</CardTitle>
-                    <CardDescription>Upload a photo of today's sales sheet.</CardDescription>
+        <div className="flex flex-col items-center p-6 max-w-lg mx-auto min-h-[calc(100-8rem)]">
+            <Card className="w-full border-gray-100 shadow-xl shadow-gray-200/50 rounded-2xl overflow-hidden">
+                <CardHeader className="bg-gray-50/50 border-b border-gray-100 pb-8">
+                    <CardTitle className="text-2xl font-serif font-bold text-[#7C0000]">Daily Sales Upload</CardTitle>
+                    <CardDescription className="text-gray-500">Capture and upload a clear photo of today's sales sheet for approval.</CardDescription>
                 </CardHeader>
                 <form onSubmit={handleSubmit}>
-                    <CardContent className="space-y-6">
-                        <div className="space-y-2">
-                            <Label htmlFor="date">Business Date</Label>
+                    <CardContent className="space-y-8 pt-8">
+                        <div className="space-y-3">
+                            <Label htmlFor="date" className="text-sm font-bold uppercase tracking-wider text-gray-700">Business Date</Label>
                             <Input
                                 id="date"
                                 type="date"
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
                                 required
-                                className="bg-zinc-900 border-border/40"
+                                className="bg-white border-gray-200 h-12 text-lg rounded-xl focus:ring-[#7C0000] focus:border-[#7C0000]"
                             />
                         </div>
 
-                        <div className="space-y-2">
-                            <Label>Capture Sales Sheet</Label>
+                        <div className="space-y-3">
+                            <Label className="text-sm font-bold uppercase tracking-wider text-gray-700">Capture Sales Sheet</Label>
                             <div className="flex flex-col gap-4">
                                 <input
                                     id="image"
@@ -119,20 +112,25 @@ export default function StaffUploadPage() {
                                 <Button
                                     type="button"
                                     variant="outline"
-                                    className="h-48 border-dashed border-border/40 flex flex-col gap-3 bg-muted/5 group hover:border-primary/50 transition-all"
+                                    className="h-64 border-2 border-dashed border-gray-200 flex flex-col gap-4 bg-gray-50/30 group hover:border-[#7C0000]/50 hover:bg-[#7C0000]/5 transition-all rounded-2xl"
                                     onClick={() => document.getElementById('image')?.click()}
                                 >
                                     {preview ? (
                                         // eslint-disable-next-line @next/next/no-img-element
-                                        <img src={preview} alt="Preview" className="h-full object-contain rounded-md" />
+                                        <div className="relative w-full h-full p-2">
+                                            <img src={preview} alt="Preview" className="w-full h-full object-contain rounded-xl shadow-md" />
+                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-xl">
+                                                <span className="text-white font-bold">Change Photo</span>
+                                            </div>
+                                        </div>
                                     ) : (
                                         <>
-                                            <div className="p-4 bg-muted/20 rounded-full group-hover:bg-primary/10 transition-colors">
-                                                <Camera className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                                            <div className="p-6 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                                                <Camera className="h-12 w-12 text-[#B5A280] group-hover:text-[#7C0000] transition-colors" />
                                             </div>
                                             <div className="flex flex-col gap-1">
-                                                <span className="text-sm font-medium">Tap to take photo</span>
-                                                <span className="text-[10px] text-muted-foreground">Ensure text is clear and readable</span>
+                                                <span className="text-lg font-serif font-bold text-gray-900">Tap to take photo</span>
+                                                <span className="text-sm text-gray-500">Ensure text is clear and readable</span>
                                             </div>
                                         </>
                                     )}
@@ -140,16 +138,16 @@ export default function StaffUploadPage() {
                             </div>
                         </div>
                     </CardContent>
-                    <CardFooter>
-                        <Button type="submit" className="w-full h-12 bg-primary hover:bg-primary/90 font-bold" disabled={!file || uploading}>
+                    <CardFooter className="pb-8">
+                        <Button type="submit" className="w-full h-14 bg-[#7C0000] hover:bg-[#5a0000] text-white font-bold text-lg rounded-xl shadow-lg shadow-[#7C0000]/20 transition-all active:scale-[0.98]" disabled={!file || uploading}>
                             {uploading ? (
                                 <>
-                                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                                    <Loader2 className="mr-3 h-6 w-6 animate-spin" />
                                     {status || 'Uploading...'}
                                 </>
                             ) : (
                                 <>
-                                    <UploadCloud className="mr-2 h-5 w-5" />
+                                    <UploadCloud className="mr-3 h-6 w-6" />
                                     Submit for Approval
                                 </>
                             )}

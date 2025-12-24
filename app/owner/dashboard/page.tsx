@@ -15,6 +15,26 @@ import { useRouter } from 'next/navigation';
 import { extractSalesData } from '@/lib/ai-service';
 import { toast } from 'sonner';
 
+function MetricField({ label, value, color, bg = "bg-white", border = "border-gray-100" }: { label: string, value: number, color: string, bg?: string, border?: string }) {
+    return (
+        <div className={`p-4 rounded-2xl border ${border} ${bg} shadow-sm flex flex-col gap-1`}>
+            <span className="text-[10px] font-black uppercase tracking-widest text-[#B5A280]">{label}</span>
+            <span className={`text-xl font-mono font-bold ${color}`}>₹{value.toLocaleString()}</span>
+        </div>
+    );
+}
+
+function SummaryBlock({ label, amount, isRed = false, isHighlight = false }: { label: string, amount: number, isRed?: boolean, isHighlight?: boolean }) {
+    return (
+        <div className={`p-4 rounded-xl border ${isHighlight ? 'bg-[#7C0000]/5 border-[#7C0000]/20' : 'bg-gray-50 border-gray-100'}`}>
+            <div className="text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">{label}</div>
+            <div className={`text-xl font-bold font-mono ${isRed ? 'text-red-600' : isHighlight ? 'text-[#7C0000]' : 'text-gray-900'}`}>
+                ₹{amount.toLocaleString()}
+            </div>
+        </div>
+    );
+}
+
 export default function OwnerDashboard() {
     const { user, role, loading, signOut } = useAuth();
     const router = useRouter();
@@ -35,6 +55,21 @@ export default function OwnerDashboard() {
     const [cash, setCash] = useState<number>(0);
     const [online, setOnline] = useState<number>(0);
     const [expenses, setExpenses] = useState<number>(0);
+    const [editableLines, setEditableLines] = useState<any[]>([]);
+
+    const updateTotalsFromLines = (lines: any[]) => {
+        const totals = lines.reduce((acc, line) => {
+            const amount = Number(line.amount) || 0;
+            if (line.classification === 'CASH_SALE') acc.cash += amount;
+            if (line.classification === 'ONLINE_SALE') acc.online += amount;
+            if (line.classification === 'EXPENSE') acc.expenses += amount;
+            return acc;
+        }, { cash: 0, online: 0, expenses: 0 });
+
+        setCash(totals.cash);
+        setOnline(totals.online);
+        setExpenses(totals.expenses);
+    };
 
     // Subscribe to Collections
     useEffect(() => {
@@ -64,13 +99,21 @@ export default function OwnerDashboard() {
     // Sync Edit Form when selection changes
     useEffect(() => {
         if (selectedUpload?.extractedData) {
-            setCash(selectedUpload.extractedData.cash || 0);
-            setOnline(selectedUpload.extractedData.online || 0);
-            setExpenses(selectedUpload.extractedData.expenses || 0);
+            const lines = selectedUpload.extractedData.rawLines || [];
+            setEditableLines(lines);
+
+            if (lines.length > 0) {
+                updateTotalsFromLines(lines);
+            } else {
+                setCash(selectedUpload.extractedData.cash || 0);
+                setOnline(selectedUpload.extractedData.online || 0);
+                setExpenses(selectedUpload.extractedData.expenses || 0);
+            }
         } else {
             setCash(0);
             setOnline(0);
             setExpenses(0);
+            setEditableLines([]);
         }
     }, [selectedUpload]);
 
@@ -152,6 +195,19 @@ export default function OwnerDashboard() {
         }
     };
 
+    const handleEditLine = (index: number, field: string, value: any) => {
+        const newLines = [...editableLines];
+        newLines[index] = { ...newLines[index], [field]: value };
+        setEditableLines(newLines);
+        updateTotalsFromLines(newLines);
+    };
+
+    const handleDeleteLine = (index: number) => {
+        const newLines = editableLines.filter((_, i) => i !== index);
+        setEditableLines(newLines);
+        updateTotalsFromLines(newLines);
+    };
+
     // Reports Aggregation
     const dailySales = sales.filter(s => s.date === selectedDate);
     const dailyTotal = dailySales.reduce((acc, curr) => ({
@@ -166,19 +222,11 @@ export default function OwnerDashboard() {
     }), { cash: 0, online: 0, expenses: 0, net: 0 });
 
     return (
-        <div className="container mx-auto p-4 max-w-6xl min-h-screen relative overflow-hidden">
-            <div className="flex justify-between items-center mb-8">
-                <div className="flex items-center gap-4">
-                    <div className="text-right">
-                        <p className="text-sm font-medium text-white">{user?.email}</p>
-                        <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">{role}</p>
-                    </div>
-                    <Button variant="outline" className="text-xs" onClick={async () => {
-                        await signOut();
-                        router.push('/');
-                    }}>Sign Out</Button>
-                </div>
-            </div>
+        <div className="container mx-auto p-6 max-w-7xl min-h-screen relative overflow-hidden">
+            <header className="mb-10">
+                <h2 className="text-3xl font-serif font-bold text-[#7C0000]">Owner Dashboard</h2>
+                <p className="text-gray-500">Oversee sales performance and verify new uploads.</p>
+            </header>
 
             <Tabs defaultValue="review" className="w-full space-y-6">
                 <TabsList className="bg-muted/50 p-1 border">
@@ -217,8 +265,8 @@ export default function OwnerDashboard() {
                                                 >
                                                     <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="flex flex-col">
-                                                            <span className="font-medium text-white">{new Date(upload.createdAt).toLocaleDateString()}</span>
-                                                            <span className="text-[10px] text-muted-foreground">{new Date(upload.createdAt).toLocaleTimeString()}</span>
+                                                            <span className="font-medium text-gray-900">{new Date(upload.createdAt).toLocaleDateString()}</span>
+                                                            <span className="text-[10px] text-gray-500">{new Date(upload.createdAt).toLocaleTimeString()}</span>
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4">
@@ -274,6 +322,52 @@ export default function OwnerDashboard() {
                                 <SummaryBlock label="Expenses" amount={dailyTotal.expenses} isRed />
                                 <SummaryBlock label="Net" amount={dailyTotal.net} isHighlight />
                             </div>
+
+                            <div className="space-y-4">
+                                <h3 className="text-lg font-serif font-bold text-[#7C0000] px-1">Transaction Breakdown</h3>
+                                <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                                    <table className="w-full text-sm text-left">
+                                        <thead className="bg-gray-50 text-gray-400 text-[10px] uppercase tracking-[0.2em] font-black">
+                                            <tr>
+                                                <th className="px-6 py-4">Status</th>
+                                                <th className="px-6 py-4 text-right">Cash</th>
+                                                <th className="px-6 py-4 text-right">Online</th>
+                                                <th className="px-6 py-4 text-right">Expenses</th>
+                                                <th className="px-6 py-4 text-right">Net</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-50">
+                                            {dailySales.map((sale) => (
+                                                <tr key={sale.id} className="hover:bg-gray-50/50 transition-colors">
+                                                    <td className="px-6 py-4">
+                                                        <span className="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded-md border border-green-100 lowercase">verified</span>
+                                                    </td>
+                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.cash.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.online.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-red-500">₹{sale.expenses.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono font-bold text-gray-900 border-l border-gray-50">₹{sale.net.toLocaleString()}</td>
+                                                </tr>
+                                            ))}
+                                            {dailySales.length === 0 && (
+                                                <tr>
+                                                    <td colSpan={5} className="px-6 py-20 text-center text-gray-400 italic">No approved sales for this date.</td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                        {dailySales.length > 0 && (
+                                            <tfoot className="bg-gray-50/80 font-black border-t-2 border-gray-100">
+                                                <tr>
+                                                    <td className="px-6 py-4 text-[#7C0000] uppercase tracking-wider text-xs">Daily Totals</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-[#7C0000]">₹{dailyTotal.cash.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-[#7C0000]">₹{dailyTotal.online.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-red-600">₹{dailyTotal.expenses.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-xl text-[#7C0000] border-l border-gray-100">₹{dailyTotal.net.toLocaleString()}</td>
+                                                </tr>
+                                            </tfoot>
+                                        )}
+                                    </table>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
@@ -292,7 +386,50 @@ export default function OwnerDashboard() {
                                 <SummaryBlock label="Total Expenses" amount={monthlyTotal.expenses} isRed />
                                 <SummaryBlock label="Total Net" amount={monthlyTotal.net} isHighlight />
                             </div>
-                            {/* Table omitted for brevity, can be re-added if space exists */}
+
+                            <div className="space-y-4">
+                                <h3 className="text-lg font-serif font-bold text-[#7C0000] px-1">Monthly Record History</h3>
+                                <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                                    <table className="w-full text-sm text-left">
+                                        <thead className="bg-gray-50 text-gray-400 text-[10px] uppercase tracking-[0.2em] font-black">
+                                            <tr>
+                                                <th className="px-6 py-4">Date</th>
+                                                <th className="px-6 py-4 text-right">Cash</th>
+                                                <th className="px-6 py-4 text-right">Online</th>
+                                                <th className="px-6 py-4 text-right">Expenses</th>
+                                                <th className="px-6 py-4 text-right font-bold">Net</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-50">
+                                            {monthlySales.map((sale) => (
+                                                <tr key={sale.id} className="hover:bg-gray-50/50 transition-colors">
+                                                    <td className="px-6 py-4 font-medium text-gray-900">{new Date(sale.date).toLocaleDateString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.cash.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-gray-700">₹{sale.online.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-red-500">₹{sale.expenses.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono font-bold text-gray-900 border-l border-gray-50">₹{sale.net.toLocaleString()}</td>
+                                                </tr>
+                                            ))}
+                                            {monthlySales.length === 0 && (
+                                                <tr>
+                                                    <td colSpan={5} className="px-6 py-20 text-center text-gray-400 italic">No approved sales for this month.</td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                        {monthlySales.length > 0 && (
+                                            <tfoot className="bg-gray-50/80 font-black border-t-2 border-gray-100">
+                                                <tr>
+                                                    <td className="px-6 py-4 text-[#7C0000] uppercase tracking-wider text-xs">Monthly Totals</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-[#7C0000]">₹{monthlyTotal.cash.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-[#7C0000]">₹{monthlyTotal.online.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-red-600">₹{monthlyTotal.expenses.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-right font-mono text-xl text-[#7C0000] border-l border-gray-100">₹{monthlyTotal.net.toLocaleString()}</td>
+                                                </tr>
+                                            </tfoot>
+                                        )}
+                                    </table>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
@@ -300,103 +437,152 @@ export default function OwnerDashboard() {
 
             {/* --- SIDE REVIEW PANEL --- */}
             {selectedUpload && (
-                <div className="fixed inset-y-0 right-0 w-[800px] bg-zinc-950 border-l border-border shadow-2xl z-50 transform transition-transform duration-300 ease-out flex flex-col p-6 gap-6">
-                    <div className="flex items-center justify-between border-b border-border/40 pb-4">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-primary/10 rounded-md"><FileText className="h-5 w-5 text-primary" /></div>
+                <div className="fixed inset-y-0 right-0 w-full md:w-[850px] bg-white border-l border-gray-200 shadow-[-20px_0_50px_rgba(0,0,0,0.1)] z-50 transform transition-transform duration-300 ease-out flex flex-col overflow-hidden">
+                    <div className="flex items-center justify-between border-b border-gray-100 p-6 bg-gray-50/50">
+                        <div className="flex items-center gap-4">
+                            <div className="p-3 bg-[#7C0000]/10 rounded-xl shadow-sm"><FileText className="h-6 w-6 text-[#7C0000]" /></div>
                             <div>
-                                <h2 className="text-xl font-bold">Review & Verify</h2>
-                                <p className="text-xs text-muted-foreground">{selectedUpload.date} | ID: {selectedUpload.id.slice(0, 8)}</p>
+                                <h2 className="text-2xl font-serif font-bold text-gray-900">Review & Verify</h2>
+                                <p className="text-xs text-gray-400 font-medium tracking-widest uppercase mt-1">{selectedUpload.date} | ID: {selectedUpload.id.slice(0, 8)}</p>
                             </div>
                         </div>
-                        <Button variant="ghost" size="icon" onClick={() => setSelectedUpload(null)}><X className="h-5 w-5" /></Button>
+                        <Button variant="ghost" size="icon" onClick={() => setSelectedUpload(null)} className="rounded-full hover:bg-red-50 hover:text-[#7C0000] transition-colors"><X className="h-6 w-6" /></Button>
                     </div>
 
-                    <div className="flex-1 overflow-hidden grid grid-cols-2 gap-6">
+                    <div className="flex-1 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
                         {/* Image Side */}
-                        <div className="bg-zinc-900 rounded-xl border border-border/40 overflow-hidden relative flex items-center justify-center">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={selectedUpload.imageUrl} alt="Sale Sheet" className="max-w-full h-auto object-contain hover:scale-150 transition-transform cursor-zoom-in" />
+                        <div className="bg-gray-100/50 p-6 border-r border-gray-100 flex flex-col gap-4 overflow-hidden">
+                            <Label className="text-xs font-bold uppercase tracking-[0.2em] text-[#B5A280]">Original Document</Label>
+                            <div className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-inner overflow-hidden relative group">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={selectedUpload.imageUrl}
+                                    alt="Sale Sheet"
+                                    className="w-full h-full object-contain hover:scale-125 transition-transform duration-500 cursor-zoom-in"
+                                />
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                    <span className="text-[10px] font-bold text-gray-500 flex items-center gap-1 uppercase tracking-tighter cursor-zoom-in">Hover to Zoom</span>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Data Side */}
-                        <div className="flex flex-col gap-6 overflow-y-auto pr-1">
-                            {/* AI Status or Results */}
-                            {!selectedUpload.extractedData ? (
-                                <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-xl flex flex-col items-center justify-center text-center gap-4">
-                                    <AlertCircle className="h-10 w-10 text-amber-500" />
-                                    <div>
-                                        <h3 className="font-bold text-amber-500">Awaiting AI Analysis</h3>
-                                        <p className="text-xs text-muted-foreground mt-1">Run extraction to automatically fill values.</p>
+                        <div className="flex flex-col h-full overflow-hidden bg-white">
+                            <div className="flex-1 overflow-y-auto p-6 space-y-8">
+                                {/* AI Status or Results */}
+                                {!selectedUpload.extractedData ? (
+                                    <div className="bg-[#B5A280]/5 border-2 border-dashed border-[#B5A280]/20 p-8 rounded-3xl flex flex-col items-center justify-center text-center gap-6">
+                                        <div className="p-4 bg-white rounded-full shadow-md"><AlertCircle className="h-10 w-10 text-[#B5A280]" /></div>
+                                        <div>
+                                            <h3 className="font-serif font-bold text-[#7C0000] text-xl">Awaiting AI Analysis</h3>
+                                            <p className="text-sm text-gray-500 mt-2 max-w-[200px] leading-relaxed italic">Run extraction to automatically fill values.</p>
+                                        </div>
+                                        <Button onClick={() => handleRunAi(selectedUpload)} disabled={analyzingId === selectedUpload.id} className="w-full h-12 bg-[#7C0000] hover:bg-[#5a0000] shadow-lg shadow-[#7C0000]/20">
+                                            {analyzingId === selectedUpload.id ? <Loader2 className="animate-spin h-5 w-5 mr-3" /> : <Camera className="h-5 w-5 mr-3" />}
+                                            Start AI Extraction
+                                        </Button>
                                     </div>
-                                    <Button onClick={() => handleRunAi(selectedUpload)} disabled={analyzingId === selectedUpload.id} className="w-full bg-amber-600 hover:bg-amber-700">
-                                        {analyzingId === selectedUpload.id ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : <Camera className="h-4 w-4 mr-2" />}
-                                        Start Extraction Now
-                                    </Button>
-                                </div>
-                            ) : (
-                                <div className="space-y-6">
-                                    {/* Summary Inputs */}
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="space-y-2">
-                                            <Label className="text-[10px] uppercase text-muted-foreground">Cash</Label>
-                                            <Input type="number" value={cash} onChange={(e) => setCash(Number(e.target.value))} className="h-8 font-mono bg-zinc-900" />
+                                ) : (
+                                    <div className="space-y-10">
+                                        {/* Summarized View */}
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <MetricField label="Cash" value={cash} color="text-gray-900" />
+                                            <MetricField label="Online" value={online} color="text-gray-900" />
+                                            <MetricField label="Expenses" value={expenses} color="text-red-600" />
+                                            <MetricField label="Net Savings" value={cash + online - expenses} color="text-green-700" bg="bg-green-50/50" border="border-green-100" />
                                         </div>
-                                        <div className="space-y-2">
-                                            <Label className="text-[10px] uppercase text-muted-foreground">Online</Label>
-                                            <Input type="number" value={online} onChange={(e) => setOnline(Number(e.target.value))} className="h-8 font-mono bg-zinc-900" />
+
+                                        {/* OCR Line Items - THE NEW EDITABLE TABLE */}
+                                        <div className="space-y-4">
+                                            <div className="flex justify-between items-end px-1">
+                                                <Label className="text-xs font-bold uppercase tracking-[0.2em] text-[#B5A280]">Itemized Breakdown</Label>
+                                                <span className="text-[10px] font-medium text-gray-400 italic">Values automatically update summaries</span>
+                                            </div>
+                                            <div className="bg-gray-50/50 rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                                                <table className="w-full text-xs">
+                                                    <thead>
+                                                        <tr className="bg-gray-100/80 border-b border-gray-200 text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                                                            <th className="px-4 py-3 text-left">Description</th>
+                                                            <th className="px-4 py-3 text-right">Amount</th>
+                                                            <th className="px-4 py-3 text-center">Type</th>
+                                                            <th className="px-4 py-3 text-right"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-gray-100">
+                                                        {editableLines?.map((line, i) => (
+                                                            <tr key={i} className="group hover:bg-white transition-colors">
+                                                                <td className="p-2 pl-4">
+                                                                    <input
+                                                                        className="w-full bg-transparent border-none focus:ring-1 focus:ring-[#7C0000]/20 rounded px-2 py-1 text-gray-700 hover:bg-white transition-all font-medium"
+                                                                        value={line.content}
+                                                                        onChange={(e) => handleEditLine(i, 'content', e.target.value)}
+                                                                    />
+                                                                </td>
+                                                                <td className="p-2 w-24">
+                                                                    <div className="flex items-center gap-1 bg-white border border-transparent group-hover:border-gray-100 rounded px-2">
+                                                                        <span className="text-gray-400 font-mono">₹</span>
+                                                                        <input
+                                                                            type="number"
+                                                                            className="w-full bg-transparent border-none focus:ring-0 p-1 text-right font-mono font-bold text-gray-800"
+                                                                            value={line.amount || 0}
+                                                                            onChange={(e) => handleEditLine(i, 'amount', e.target.value)}
+                                                                        />
+                                                                    </div>
+                                                                </td>
+                                                                <td className="p-2 w-28 text-center">
+                                                                    <select
+                                                                        className={`text-[9px] font-black uppercase tracking-tighter px-2 py-1 rounded-md border-none focus:ring-1 focus:ring-[#7C0000]/20 appearance-none cursor-pointer text-center ${line.classification === 'EXPENSE' ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-700'
+                                                                            }`}
+                                                                        value={line.classification}
+                                                                        onChange={(e) => handleEditLine(i, 'classification', e.target.value)}
+                                                                    >
+                                                                        <option value="CASH_SALE">Cash</option>
+                                                                        <option value="ONLINE_SALE">Online</option>
+                                                                        <option value="EXPENSE">Expense</option>
+                                                                        <option value="UNKNOWN">Ignore</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td className="p-2 pr-4 text-right">
+                                                                    <Button
+                                                                        variant="ghost"
+                                                                        size="icon"
+                                                                        className="h-7 w-7 text-gray-300 hover:text-red-600 hover:bg-red-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all"
+                                                                        onClick={() => handleDeleteLine(i)}
+                                                                    >
+                                                                        <X className="h-3 w-3" />
+                                                                    </Button>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                        {editableLines.length === 0 && (
+                                                            <tr>
+                                                                <td colSpan={4} className="py-8 text-center text-gray-400 italic bg-white">No items to display.</td>
+                                                            </tr>
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div className="space-y-2">
-                                            <Label className="text-[10px] uppercase text-muted-foreground">Expenses</Label>
-                                            <Input type="number" value={expenses} onChange={(e) => setExpenses(Number(e.target.value))} className="h-8 font-mono bg-zinc-900 text-red-400" />
-                                        </div>
-                                        <div className="space-y-2 flex flex-col justify-end">
-                                            <div className="text-[10px] uppercase text-muted-foreground mb-1">Calculated Net</div>
-                                            <div className="h-8 flex items-center px-3 rounded-md bg-green-500/10 text-green-500 font-bold font-mono border border-green-500/20">
-                                                ₹{(cash + online - expenses).toLocaleString()}
+
+                                        {/* AI Notes */}
+                                        <div className="space-y-3">
+                                            <Label className="text-xs font-bold uppercase tracking-[0.2em] text-[#B5A280]">AI Assistant Observations</Label>
+                                            <div className="text-sm p-4 bg-gray-50 rounded-2xl border border-gray-100 italic text-gray-500 leading-relaxed shadow-inner">
+                                                {selectedUpload.extractedData.notes || "No unusual activity detected on this sheet. Values seem clean and consistent."}
                                             </div>
                                         </div>
                                     </div>
+                                )}
+                            </div>
 
-                                    {/* OCR Line Items */}
-                                    <div className="border border-border/40 rounded-xl overflow-hidden bg-zinc-900/30">
-                                        <div className="text-[10px] uppercase py-2 px-4 bg-zinc-900 border-b border-border/40 font-bold tracking-widest">OCR Line Breakdown</div>
-                                        <div className="max-h-[300px] overflow-y-auto">
-                                            <table className="w-full text-[11px]">
-                                                <tbody>
-                                                    {selectedUpload.extractedData.rawLines?.map((line, i) => (
-                                                        <tr key={i} className="border-b border-border/20 last:border-0">
-                                                            <td className="p-2 truncate max-w-[120px] text-muted-foreground">{line.content}</td>
-                                                            <td className="p-2 text-right font-mono">₹{line.amount?.toLocaleString() || '---'}</td>
-                                                            <td className="p-2 text-right">
-                                                                <span className={`px-1 rounded-[2px] text-[8px] font-bold ${line.classification === 'EXPENSE' ? 'bg-red-500/20 text-red-500' : 'bg-green-500/20 text-green-500'
-                                                                    }`}>{line.classification.replace('_', ' ')}</span>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    {/* AI Notes */}
-                                    <div className="space-y-2">
-                                        <Label className="text-[10px] uppercase text-muted-foreground">AI Intelligence Notes</Label>
-                                        <div className="text-xs p-3 bg-zinc-900 rounded-lg border border-border/40 italic text-muted-foreground">
-                                            {selectedUpload.extractedData.notes || "No unusual text detected on sheet."}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
+                            <div className="p-8 bg-gray-50/80 border-t border-gray-100 flex gap-4 mt-auto">
+                                <Button variant="outline" className="flex-1 h-12 border-2 border-gray-200 text-gray-600 hover:bg-red-50 hover:text-red-600 hover:border-red-100 font-bold transition-all rounded-xl" onClick={handleReject} disabled={processing}>Reject & Discard</Button>
+                                <Button className="flex-[2] h-12 bg-green-600 hover:bg-green-700 shadow-lg shadow-green-600/20 text-white font-black uppercase tracking-widest transition-all active:scale-[0.98] rounded-xl" onClick={handleApprove} disabled={processing || !selectedUpload.extractedData}>
+                                    {processing ? <Loader2 className="animate-spin h-5 w-5 mr-3" /> : <Check className="h-5 w-5 mr-3" />}
+                                    Finalize & Save Sales
+                                </Button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className="flex gap-4 border-t border-border/40 pt-4">
-                        <Button variant="outline" className="flex-1" onClick={handleReject} disabled={processing}>Reject & Discard</Button>
-                        <Button className="flex-[2] bg-green-600 hover:bg-green-700" onClick={handleApprove} disabled={processing || !selectedUpload.extractedData}>
-                            {processing ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : <Check className="h-4 w-4 mr-2" />}
-                            Approve Sales Data
-                        </Button>
                     </div>
                 </div>
             )}
@@ -404,13 +590,3 @@ export default function OwnerDashboard() {
     );
 }
 
-function SummaryBlock({ label, amount, isRed = false, isHighlight = false }: { label: string, amount: number, isRed?: boolean, isHighlight?: boolean }) {
-    return (
-        <div className={`p-4 rounded-xl border ${isHighlight ? 'bg-primary/10 border-primary/30' : 'bg-muted/30 border-border/40'}`}>
-            <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1">{label}</div>
-            <div className={`text-xl font-bold font-mono ${isRed ? 'text-red-400' : isHighlight ? 'text-primary' : 'text-white'}`}>
-                ₹{amount.toLocaleString()}
-            </div>
-        </div>
-    );
-}

@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
+import { Header } from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,9 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
         <AuthProvider>
+          <Header />
           {children}
           <Toaster invert richColors />
         </AuthProvider>
