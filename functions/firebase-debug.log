@@ -1,0 +1,1849 @@
+[debug] [2025-09-17T09:46:43.827Z] ----------------------------------------------------------------------
+[debug] [2025-09-17T09:46:43.830Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rentla.in\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-09-17T09:46:43.831Z] CLI Version:   14.15.2
+[debug] [2025-09-17T09:46:43.831Z] Platform:      win32
+[debug] [2025-09-17T09:46:43.831Z] Node Version:  v22.14.0
+[debug] [2025-09-17T09:46:43.831Z] Time:          Wed Sep 17 2025 15:16:43 GMT+0530 (India Standard Time)
+[debug] [2025-09-17T09:46:43.831Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-17T09:46:43.834Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-09-17T09:46:44.120Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-17T09:46:44.120Z] > authorizing via signed-in user (rds087@gmail.com)
+[debug] [2025-09-17T09:46:44.120Z] [iam] checking project retail-shop-9bc30 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-09-17T09:46:44.121Z] Checked if tokens are valid: false, expires at: 1757948197638
+[debug] [2025-09-17T09:46:44.121Z] Checked if tokens are valid: false, expires at: 1757948197638
+[debug] [2025-09-17T09:46:44.122Z] > refreshing access token with scopes: []
+[debug] [2025-09-17T09:46:44.123Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-17T09:46:44.123Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-17T09:46:44.312Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-17T09:46:44.312Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-17T09:46:44.328Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions [none]
+[debug] [2025-09-17T09:46:44.328Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions x-goog-quota-user=projects/retail-shop-9bc30
+[debug] [2025-09-17T09:46:44.328Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-17T09:46:45.074Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-09-17T09:46:45.075Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-09-17T09:46:45.786Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions 200
+[debug] [2025-09-17T09:46:45.786Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-17T09:46:45.786Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:45.786Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:45.787Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-09-17T09:46:45.787Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-09-17T09:46:47.463Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-09-17T09:46:47.463Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'retail-shop-9bc30'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script. 
+[debug] [2025-09-17T09:46:50.569Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:50.569Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:50.569Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 [none]
+[debug] [2025-09-17T09:46:50.901Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 200
+[debug] [2025-09-17T09:46:50.901Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 {"projectNumber":"101062122561","projectId":"retail-shop-9bc30","lifecycleState":"ACTIVE","name":"retail-shop","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-06T14:43:43.270485Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-09-17T09:46:50.905Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:50.906Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:50.906Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig [none]
+[debug] [2025-09-17T09:46:52.236Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig 200
+[debug] [2025-09-17T09:46:52.236Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig {"projectId":"retail-shop-9bc30","storageBucket":"retail-shop-9bc30.firebasestorage.app"}
+[debug] [2025-09-17T09:46:52.236Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:52.236Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:46:52.237Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs [none]
+[debug] [2025-09-17T09:46:52.768Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs 200
+[debug] [2025-09-17T09:46:52.769Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs {}
+[debug] [2025-09-17T09:46:52.773Z] Validating nodejs source
+[debug] [2025-09-17T09:46:53.802Z] > [functions] package.json contents: {
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@google-cloud/vision": "^4",
+    "abort-controller": "^3.0.0",
+    "accepts": "^1.3.8",
+    "acorn": "^8.15.0",
+    "acorn-jsx": "^5.3.2",
+    "agent-base": "^7.1.4",
+    "ajv": "^6.12.6",
+    "ansi-escapes": "^4.3.2",
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "anymatch": "^3.1.3",
+    "argparse": "^2.0.1",
+    "array-buffer-byte-length": "^1.0.2",
+    "array-flatten": "^1.1.1",
+    "array-includes": "^3.1.9",
+    "array-union": "^2.1.0",
+    "array.prototype.findlastindex": "^1.2.6",
+    "array.prototype.flat": "^1.3.3",
+    "array.prototype.flatmap": "^1.3.3",
+    "arraybuffer.prototype.slice": "^1.0.4",
+    "arrify": "^2.0.1",
+    "async-function": "^1.0.0",
+    "async-retry": "^1.3.3",
+    "asynckit": "^0.4.0",
+    "available-typed-arrays": "^1.0.7",
+    "babel-jest": "^30.1.2",
+    "babel-plugin-istanbul": "^7.0.1",
+    "babel-plugin-jest-hoist": "^30.0.1",
+    "babel-preset-current-node-syntax": "^1.2.0",
+    "babel-preset-jest": "^30.0.1",
+    "balanced-match": "^1.0.2",
+    "base64-js": "^1.5.1",
+    "bignumber.js": "^9.3.1",
+    "body-parser": "^1.20.3",
+    "brace-expansion": "^1.1.12",
+    "braces": "^3.0.3",
+    "browserslist": "^4.25.4",
+    "bser": "^2.1.1",
+    "buffer-equal-constant-time": "^1.0.1",
+    "buffer-from": "^1.1.2",
+    "bytes": "^3.1.2",
+    "call-bind": "^1.0.8",
+    "call-bind-apply-helpers": "^1.0.2",
+    "call-bound": "^1.0.4",
+    "callsites": "^3.1.0",
+    "camelcase": "^5.3.1",
+    "caniuse-lite": "^1.0.30001741",
+    "chalk": "^4.1.2",
+    "char-regex": "^1.0.2",
+    "ci-info": "^4.3.0",
+    "cjs-module-lexer": "^2.1.0",
+    "cliui": "^8.0.1",
+    "co": "^4.6.0",
+    "collect-v8-coverage": "^1.0.2",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "combined-stream": "^1.0.8",
+    "concat-map": "^0.0.1",
+    "content-disposition": "^0.5.4",
+    "content-type": "^1.0.5",
+    "convert-source-map": "^2.0.0",
+    "cookie": "^0.7.1",
+    "cookie-signature": "^1.0.6",
+    "cors": "^2.8.5",
+    "cross-spawn": "^7.0.6",
+    "data-view-buffer": "^1.0.2",
+    "data-view-byte-length": "^1.0.2",
+    "data-view-byte-offset": "^1.0.1",
+    "debug": "^4.4.1",
+    "dedent": "^1.7.0",
+    "deep-is": "^0.1.4",
+    "deepmerge": "^4.3.1",
+    "define-data-property": "^1.1.4",
+    "define-properties": "^1.2.1",
+    "delayed-stream": "^1.0.0",
+    "depd": "^2.0.0",
+    "destroy": "^1.2.0",
+    "detect-newline": "^3.1.0",
+    "dir-glob": "^3.0.1",
+    "doctrine": "^3.0.0",
+    "dunder-proto": "^1.0.1",
+    "duplexify": "^4.1.3",
+    "eastasianwidth": "^0.2.0",
+    "ecdsa-sig-formatter": "^1.0.11",
+    "ee-first": "^1.1.1",
+    "electron-to-chromium": "^1.5.214",
+    "emittery": "^0.13.1",
+    "emoji-regex": "^8.0.0",
+    "encodeurl": "^2.0.0",
+    "end-of-stream": "^1.4.5",
+    "error-ex": "^1.3.2",
+    "es-abstract": "^1.24.0",
+    "es-define-property": "^1.0.1",
+    "es-errors": "^1.3.0",
+    "es-object-atoms": "^1.1.1",
+    "es-set-tostringtag": "^2.1.0",
+    "es-shim-unscopables": "^1.1.0",
+    "es-to-primitive": "^1.3.0",
+    "escalade": "^3.2.0",
+    "escape-html": "^1.0.3",
+    "escape-string-regexp": "^4.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-module-utils": "^2.12.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-scope": "^5.1.1",
+    "eslint-visitor-keys": "^3.4.3",
+    "espree": "^9.6.1",
+    "esprima": "^4.0.1",
+    "esquery": "^1.6.0",
+    "esrecurse": "^4.3.0",
+    "estraverse": "^4.3.0",
+    "esutils": "^2.0.3",
+    "etag": "^1.8.1",
+    "event-target-shim": "^5.0.1",
+    "execa": "^5.1.1",
+    "exit-x": "^0.2.2",
+    "expect": "^30.1.2",
+    "express": "^4.21.2",
+    "extend": "^3.0.2",
+    "farmhash-modern": "^1.1.0",
+    "fast-deep-equal": "^3.1.3",
+    "fast-glob": "^3.3.3",
+    "fast-json-stable-stringify": "^2.1.0",
+    "fast-levenshtein": "^2.0.6",
+    "fast-xml-parser": "^4.5.3",
+    "fastq": "^1.19.1",
+    "faye-websocket": "^0.11.4",
+    "fb-watchman": "^2.0.2",
+    "file-entry-cache": "^6.0.1",
+    "fill-range": "^7.1.1",
+    "finalhandler": "^1.3.1",
+    "find-up": "^5.0.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.4.0",
+    "firebase-functions-test": "^3.4.1",
+    "flat-cache": "^3.2.0",
+    "flatted": "^3.3.3",
+    "for-each": "^0.3.5",
+    "foreground-child": "^3.3.1",
+    "form-data": "^2.5.5",
+    "forwarded": "^0.2.0",
+    "fresh": "^0.5.2",
+    "fs.realpath": "^1.0.0",
+    "function-bind": "^1.1.2",
+    "function.prototype.name": "^1.1.8",
+    "functional-red-black-tree": "^1.0.1",
+    "functions-have-names": "^1.2.3",
+    "gaxios": "^6.7.1",
+    "gcp-metadata": "^6.1.1",
+    "gensync": "^1.0.0-beta.2",
+    "get-caller-file": "^2.0.5",
+    "get-intrinsic": "^1.3.0",
+    "get-package-type": "^0.1.0",
+    "get-proto": "^1.0.1",
+    "get-stream": "^6.0.1",
+    "get-symbol-description": "^1.1.0",
+    "glob": "^10.4.5",
+    "glob-parent": "^6.0.2",
+    "globals": "^13.24.0",
+    "globalthis": "^1.0.4",
+    "globby": "^11.1.0",
+    "google-auth-library": "^9.15.1",
+    "google-gax": "^4.6.1",
+    "google-logging-utils": "^0.0.2",
+    "gopd": "^1.2.0",
+    "graceful-fs": "^4.2.11",
+    "graphemer": "^1.4.0",
+    "gtoken": "^7.1.0",
+    "has-bigints": "^1.1.0",
+    "has-flag": "^4.0.0",
+    "has-property-descriptors": "^1.0.2",
+    "has-proto": "^1.2.0",
+    "has-symbols": "^1.1.0",
+    "has-tostringtag": "^1.0.2",
+    "hasown": "^2.0.2",
+    "html-entities": "^2.6.0",
+    "html-escaper": "^2.0.2",
+    "http-errors": "^2.0.0",
+    "http-parser-js": "^0.5.10",
+    "http-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^7.0.6",
+    "human-signals": "^2.1.0",
+    "iconv-lite": "^0.4.24",
+    "ignore": "^5.3.2",
+    "import-fresh": "^3.3.1",
+    "import-local": "^3.2.0",
+    "imurmurhash": "^0.1.4",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "internal-slot": "^1.1.0",
+    "ipaddr.js": "^1.9.1",
+    "is-array-buffer": "^3.0.5",
+    "is-arrayish": "^0.2.1",
+    "is-async-function": "^2.1.1",
+    "is-bigint": "^1.1.0",
+    "is-boolean-object": "^1.2.2",
+    "is-callable": "^1.2.7",
+    "is-core-module": "^2.16.1",
+    "is-data-view": "^1.0.2",
+    "is-date-object": "^1.1.0",
+    "is-extglob": "^2.1.1",
+    "is-finalizationregistry": "^1.1.1",
+    "is-fullwidth-code-point": "^3.0.0",
+    "is-generator-fn": "^2.1.0",
+    "is-generator-function": "^1.1.0",
+    "is-glob": "^4.0.3",
+    "is-map": "^2.0.3",
+    "is-negative-zero": "^2.0.3",
+    "is-number": "^7.0.0",
+    "is-number-object": "^1.1.1",
+    "is-path-inside": "^3.0.3",
+    "is-regex": "^1.2.1",
+    "is-set": "^2.0.3",
+    "is-shared-array-buffer": "^1.0.4",
+    "is-stream": "^2.0.1",
+    "is-string": "^1.1.1",
+    "is-symbol": "^1.1.1",
+    "is-typed-array": "^1.1.15",
+    "is-weakmap": "^2.0.2",
+    "is-weakref": "^1.1.1",
+    "is-weakset": "^2.0.4",
+    "isarray": "^2.0.5",
+    "isexe": "^2.0.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "istanbul-lib-instrument": "^6.0.3",
+    "istanbul-lib-report": "^3.0.1",
+    "istanbul-lib-source-maps": "^5.0.6",
+    "istanbul-reports": "^3.2.0",
+    "jackspeak": "^3.4.3",
+    "jest": "^30.1.3",
+    "jest-changed-files": "^30.0.5",
+    "jest-circus": "^30.1.3",
+    "jest-cli": "^30.1.3",
+    "jest-config": "^30.1.3",
+    "jest-diff": "^30.1.2",
+    "jest-docblock": "^30.0.1",
+    "jest-each": "^30.1.0",
+    "jest-environment-node": "^30.1.2",
+    "jest-haste-map": "^30.1.0",
+    "jest-leak-detector": "^30.1.0",
+    "jest-matcher-utils": "^30.1.2",
+    "jest-message-util": "^30.1.0",
+    "jest-mock": "^30.0.5",
+    "jest-pnp-resolver": "^1.2.3",
+    "jest-regex-util": "^30.0.1",
+    "jest-resolve": "^30.1.3",
+    "jest-resolve-dependencies": "^30.1.3",
+    "jest-runner": "^30.1.3",
+    "jest-runtime": "^30.1.3",
+    "jest-snapshot": "^30.1.2",
+    "jest-util": "^30.0.5",
+    "jest-validate": "^30.1.0",
+    "jest-watcher": "^30.1.3",
+    "jest-worker": "^30.1.0",
+    "jose": "^4.15.9",
+    "js-tokens": "^4.0.0",
+    "js-yaml": "^4.1.0",
+    "jsesc": "^3.1.0",
+    "json-bigint": "^1.0.0",
+    "json-buffer": "^3.0.1",
+    "json-parse-even-better-errors": "^2.3.1",
+    "json-schema-traverse": "^0.4.1",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
+    "json5": "^2.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwa": "^2.0.1",
+    "jwks-rsa": "^3.2.0",
+    "jws": "^4.0.0",
+    "keyv": "^4.5.4",
+    "leven": "^3.1.0",
+    "levn": "^0.4.1",
+    "limiter": "^1.1.5",
+    "lines-and-columns": "^1.2.4",
+    "locate-path": "^6.0.0",
+    "lodash": "^4.17.21",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.includes": "^4.3.0",
+    "lodash.isboolean": "^3.0.3",
+    "lodash.isinteger": "^4.0.4",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.isstring": "^4.0.1",
+    "lodash.merge": "^4.6.2",
+    "lodash.once": "^4.1.1",
+    "long": "^5.3.2",
+    "lru-cache": "^6.0.0",
+    "lru-memoizer": "^2.3.0",
+    "make-dir": "^4.0.0",
+    "makeerror": "^1.0.12",
+    "math-intrinsics": "^1.1.0",
+    "media-typer": "^0.3.0",
+    "merge-descriptors": "^1.0.3",
+    "merge-stream": "^2.0.0",
+    "merge2": "^1.4.1",
+    "methods": "^1.1.2",
+    "micromatch": "^4.0.8",
+    "mime": "^3.0.0",
+    "mime-db": "^1.52.0",
+    "mime-types": "^2.1.35",
+    "mimic-fn": "^2.1.0",
+    "minimatch": "^3.1.2",
+    "minimist": "^1.2.8",
+    "minipass": "^7.1.2",
+    "ms": "^2.1.3",
+    "napi-postinstall": "^0.3.3",
+    "natural-compare": "^1.4.0",
+    "natural-compare-lite": "^1.4.0",
+    "negotiator": "^0.6.3",
+    "node-forge": "^1.3.1",
+    "node-int64": "^0.4.0",
+    "node-releases": "^2.0.20",
+    "normalize-path": "^3.0.0",
+    "npm-run-path": "^4.0.1",
+    "object-assign": "^4.1.1",
+    "object-hash": "^3.0.0",
+    "object-inspect": "^1.13.4",
+    "object-keys": "^1.1.1",
+    "object.assign": "^4.1.7",
+    "object.fromentries": "^2.0.8",
+    "object.groupby": "^1.0.3",
+    "object.values": "^1.2.1",
+    "on-finished": "^2.4.1",
+    "once": "^1.4.0",
+    "onetime": "^5.1.2",
+    "optionator": "^0.9.4",
+    "own-keys": "^1.0.1",
+    "p-limit": "^3.1.0",
+    "p-locate": "^5.0.0",
+    "p-try": "^2.2.0",
+    "package-json-from-dist": "^1.0.1",
+    "parent-module": "^1.0.1",
+    "parse-json": "^5.2.0",
+    "parseurl": "^1.3.3",
+    "path-exists": "^4.0.0",
+    "path-is-absolute": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-parse": "^1.0.7",
+    "path-scurry": "^1.11.1",
+    "path-to-regexp": "^0.1.12",
+    "path-type": "^4.0.0",
+    "picocolors": "^1.1.1",
+    "picomatch": "^2.3.1",
+    "pirates": "^4.0.7",
+    "pkg-dir": "^4.2.0",
+    "possible-typed-array-names": "^1.1.0",
+    "prelude-ls": "^1.2.1",
+    "pretty-format": "^30.0.5",
+    "proto3-json-serializer": "^2.0.2",
+    "protobufjs": "^7.5.4",
+    "proxy-addr": "^2.0.7",
+    "punycode": "^2.3.1",
+    "pure-rand": "^7.0.1",
+    "qs": "^6.13.0",
+    "queue-microtask": "^1.2.3",
+    "range-parser": "^1.2.1",
+    "raw-body": "^2.5.2",
+    "react-is": "^18.3.1",
+    "readable-stream": "^3.6.2",
+    "reflect.getprototypeof": "^1.0.10",
+    "regexp.prototype.flags": "^1.5.4",
+    "require-directory": "^2.1.1",
+    "resolve": "^1.22.10",
+    "resolve-cwd": "^3.0.0",
+    "resolve-from": "^4.0.0",
+    "retry": "^0.13.1",
+    "retry-request": "^7.0.2",
+    "reusify": "^1.1.0",
+    "rimraf": "^3.0.2",
+    "run-parallel": "^1.2.0",
+    "safe-array-concat": "^1.1.3",
+    "safe-buffer": "^5.2.1",
+    "safe-push-apply": "^1.0.0",
+    "safe-regex-test": "^1.1.0",
+    "safer-buffer": "^2.1.2",
+    "semver": "^7.7.2",
+    "send": "^0.19.0",
+    "serve-static": "^1.16.2",
+    "set-function-length": "^1.2.2",
+    "set-function-name": "^2.0.2",
+    "set-proto": "^1.0.0",
+    "setprototypeof": "^1.2.0",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "side-channel": "^1.1.0",
+    "side-channel-list": "^1.0.0",
+    "side-channel-map": "^1.0.1",
+    "side-channel-weakmap": "^1.0.2",
+    "signal-exit": "^4.1.0",
+    "slash": "^3.0.0",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.13",
+    "sprintf-js": "^1.0.3",
+    "stack-utils": "^2.0.6",
+    "statuses": "^2.0.1",
+    "stop-iteration-iterator": "^1.1.0",
+    "stream-events": "^1.0.5",
+    "stream-shift": "^1.0.3",
+    "string_decoder": "^1.3.0",
+    "string-length": "^4.0.2",
+    "string-width": "^4.2.3",
+    "string-width-cjs": "^4.2.3",
+    "string.prototype.trim": "^1.2.10",
+    "string.prototype.trimend": "^1.0.9",
+    "string.prototype.trimstart": "^1.0.8",
+    "strip-ansi": "^6.0.1",
+    "strip-ansi-cjs": "^6.0.1",
+    "strip-bom": "^4.0.0",
+    "strip-final-newline": "^2.0.0",
+    "strip-json-comments": "^3.1.1",
+    "strnum": "^1.1.2",
+    "stubs": "^3.0.0",
+    "supports-color": "^7.2.0",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "synckit": "^0.11.11",
+    "teeny-request": "^9.0.0",
+    "test-exclude": "^6.0.0",
+    "text-table": "^0.2.0",
+    "tmpl": "^1.0.5",
+    "to-regex-range": "^5.0.1",
+    "toidentifier": "^1.0.1",
+    "tr46": "^0.0.3",
+    "ts-deepmerge": "^2.0.7",
+    "tsconfig-paths": "^3.15.0",
+    "tslib": "^2.8.1",
+    "tsutils": "^3.21.0",
+    "type-check": "^0.4.0",
+    "type-detect": "^4.0.8",
+    "type-fest": "^0.20.2",
+    "type-is": "^1.6.18",
+    "typed-array-buffer": "^1.0.3",
+    "typed-array-byte-length": "^1.0.3",
+    "typed-array-byte-offset": "^1.0.4",
+    "typed-array-length": "^1.0.7",
+    "typescript": "^5.9.2",
+    "unbox-primitive": "^1.1.0",
+    "undici-types": "^6.21.0",
+    "unpipe": "^1.0.0",
+    "unrs-resolver": "^1.11.1",
+    "update-browserslist-db": "^1.1.3",
+    "uri-js": "^4.4.1",
+    "util-deprecate": "^1.0.2",
+    "utils-merge": "^1.0.1",
+    "v8-to-istanbul": "^9.3.0",
+    "vary": "^1.1.2",
+    "walker": "^1.0.8",
+    "webidl-conversions": "^3.0.1",
+    "websocket-driver": "^0.7.4",
+    "websocket-extensions": "^0.1.4",
+    "whatwg-url": "^5.0.0",
+    "which": "^2.0.2",
+    "which-boxed-primitive": "^1.1.1",
+    "which-builtin-type": "^1.2.1",
+    "which-collection": "^1.0.2",
+    "which-typed-array": "^1.1.19",
+    "word-wrap": "^1.2.5",
+    "wrap-ansi": "^7.0.0",
+    "wrap-ansi-cjs": "^7.0.0",
+    "wrappy": "^1.0.2",
+    "write-file-atomic": "^5.0.1",
+    "y18n": "^5.0.8",
+    "yallist": "^4.0.0",
+    "yargs": "^17.7.2",
+    "yargs-parser": "^21.1.1",
+    "yocto-queue": "^0.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "seed": "ts-node src/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/express": "^4",
+    "typescript": "^5",
+    "ts-node": "^10.9.0"
+  }
+}
+[debug] [2025-09-17T09:46:53.802Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-09-17T09:46:53.804Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-09-17T09:46:53.816Z] Found firebase-functions binary at 'D:\client\retailshop\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8144
+
+[debug] [2025-09-17T09:46:55.847Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[error] (node:13776) MetadataLookupWarning: received unexpected error = network timeout at: http://169.254.169.254/computeMetadata/v1/instance code = UNKNOWN
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-09-17T09:47:01.007Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-17T09:47:01.007Z] > authorizing via signed-in user (rds087@gmail.com)
+[debug] [2025-09-17T09:47:01.008Z] [iam] checking project retail-shop-9bc30 for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-09-17T09:47:01.008Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:47:01.008Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:47:01.008Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions [none]
+[debug] [2025-09-17T09:47:01.009Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions x-goog-quota-user=projects/retail-shop-9bc30
+[debug] [2025-09-17T09:47:01.009Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-09-17T09:47:02.484Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions 200
+[debug] [2025-09-17T09:47:02.485Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-09-17T09:47:02.485Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:47:02.485Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:47:02.485Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances pageSize=100&pageToken=
+[debug] [2025-09-17T09:47:04.131Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances 200
+[debug] [2025-09-17T09:47:04.131Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances {}
+[error] Error: Failed to load environment variables from .env.:
+[error] - FirebaseError Invalid dotenv file, error on lines: ��#   F i r e b a s e   F u n c t i o n s   E n v i r o n m e n t   V a r i a b l e s , , N E X T _ P U B L I C _ F I R E B A S E _ A P I _ K E Y = " A I z a S y D a 0 R e N b 7 4 X K d 5 o 2 6 p N G j Z J S b C K d b n K M F k " , , N E X T _ P U B L I C _ F I R E B A S E _ A U T H _ D O M A I N = " r e t a i l - s h o p - 9 b c 3 0 . f i r e b a s e a p p . c o m " , , N E X T _ P U B L I C _ F I R E B A S E _ P R O J E C T _ I D = " r e t a i l - s h o p - 9 b c 3 0 " , , N E X T _ P U B L I C _ F I R E B A S E _ S T O R A G E _ B U C K E T = " r e t a i l - s h o p - 9 b c 3 0 . a p p s p o t . c o m " , , N E X T _ P U B L I C _ F I R E B A S E _ M E S S A G I N G _ S E N D E R _ I D = " 1 0 1 0 6 2 1 2 2 5 6 1 " , , N E X T _ P U B L I C _ F I R E B A S E _ A P P _ I D = " 1 : 1 0 1 0 6 2 1 2 2 5 6 1 : w e b : c 2 1 3 6 d 7 9 4 3 d 0 1 4 6 d 4 5 3 a c 0 " , , N E X T _ P U B L I C _ F U N C T I O N S _ B A S E _ U R L = h t t p s : / / u s - c e n t r a l 1 - r e t a i l - s h o p - 9 b c 3 0 . c l o u d f u n c t i o n s . n e t / a p i     
+[debug] [2025-09-17T09:52:11.408Z] ----------------------------------------------------------------------
+[debug] [2025-09-17T09:52:11.412Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rentla.in\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2025-09-17T09:52:11.412Z] CLI Version:   14.16.0
+[debug] [2025-09-17T09:52:11.413Z] Platform:      win32
+[debug] [2025-09-17T09:52:11.413Z] Node Version:  v22.14.0
+[debug] [2025-09-17T09:52:11.413Z] Time:          Wed Sep 17 2025 15:22:11 GMT+0530 (India Standard Time)
+[debug] [2025-09-17T09:52:11.413Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-17T09:52:11.701Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-17T09:52:11.703Z] > authorizing via signed-in user (rds087@gmail.com)
+[debug] [2025-09-17T09:52:11.704Z] [iam] checking project retail-shop-9bc30 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-09-17T09:52:11.706Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:11.707Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:11.709Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions [none]
+[debug] [2025-09-17T09:52:11.710Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions x-goog-quota-user=projects/retail-shop-9bc30
+[debug] [2025-09-17T09:52:11.710Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-17T09:52:13.194Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions 200
+[debug] [2025-09-17T09:52:13.195Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-17T09:52:13.196Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:13.197Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:13.197Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-09-17T09:52:13.197Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-09-17T09:52:14.909Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-09-17T09:52:14.910Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/retail-shop-9bc30/serviceAccounts/retail-shop-9bc30@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'retail-shop-9bc30'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script. 
+[debug] [2025-09-17T09:52:19.639Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:19.639Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:19.642Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 [none]
+[debug] [2025-09-17T09:52:21.017Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 200
+[debug] [2025-09-17T09:52:21.017Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 {"projectNumber":"101062122561","projectId":"retail-shop-9bc30","lifecycleState":"ACTIVE","name":"retail-shop","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-06T14:43:43.270485Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-09-17T09:52:21.022Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:21.022Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:21.023Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig [none]
+[debug] [2025-09-17T09:52:21.765Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig 200
+[debug] [2025-09-17T09:52:21.765Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig {"projectId":"retail-shop-9bc30","storageBucket":"retail-shop-9bc30.firebasestorage.app"}
+[debug] [2025-09-17T09:52:21.766Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:21.766Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:21.767Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs [none]
+[debug] [2025-09-17T09:52:22.255Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs 200
+[debug] [2025-09-17T09:52:22.255Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/retail-shop-9bc30/configs {}
+[debug] [2025-09-17T09:52:22.258Z] Validating nodejs source
+[debug] [2025-09-17T09:52:23.845Z] > [functions] package.json contents: {
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@google-cloud/vision": "^4",
+    "abort-controller": "^3.0.0",
+    "accepts": "^1.3.8",
+    "acorn": "^8.15.0",
+    "acorn-jsx": "^5.3.2",
+    "agent-base": "^7.1.4",
+    "ajv": "^6.12.6",
+    "ansi-escapes": "^4.3.2",
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "anymatch": "^3.1.3",
+    "argparse": "^2.0.1",
+    "array-buffer-byte-length": "^1.0.2",
+    "array-flatten": "^1.1.1",
+    "array-includes": "^3.1.9",
+    "array-union": "^2.1.0",
+    "array.prototype.findlastindex": "^1.2.6",
+    "array.prototype.flat": "^1.3.3",
+    "array.prototype.flatmap": "^1.3.3",
+    "arraybuffer.prototype.slice": "^1.0.4",
+    "arrify": "^2.0.1",
+    "async-function": "^1.0.0",
+    "async-retry": "^1.3.3",
+    "asynckit": "^0.4.0",
+    "available-typed-arrays": "^1.0.7",
+    "babel-jest": "^30.1.2",
+    "babel-plugin-istanbul": "^7.0.1",
+    "babel-plugin-jest-hoist": "^30.0.1",
+    "babel-preset-current-node-syntax": "^1.2.0",
+    "babel-preset-jest": "^30.0.1",
+    "balanced-match": "^1.0.2",
+    "base64-js": "^1.5.1",
+    "bignumber.js": "^9.3.1",
+    "body-parser": "^1.20.3",
+    "brace-expansion": "^1.1.12",
+    "braces": "^3.0.3",
+    "browserslist": "^4.25.4",
+    "bser": "^2.1.1",
+    "buffer-equal-constant-time": "^1.0.1",
+    "buffer-from": "^1.1.2",
+    "bytes": "^3.1.2",
+    "call-bind": "^1.0.8",
+    "call-bind-apply-helpers": "^1.0.2",
+    "call-bound": "^1.0.4",
+    "callsites": "^3.1.0",
+    "camelcase": "^5.3.1",
+    "caniuse-lite": "^1.0.30001741",
+    "chalk": "^4.1.2",
+    "char-regex": "^1.0.2",
+    "ci-info": "^4.3.0",
+    "cjs-module-lexer": "^2.1.0",
+    "cliui": "^8.0.1",
+    "co": "^4.6.0",
+    "collect-v8-coverage": "^1.0.2",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "combined-stream": "^1.0.8",
+    "concat-map": "^0.0.1",
+    "content-disposition": "^0.5.4",
+    "content-type": "^1.0.5",
+    "convert-source-map": "^2.0.0",
+    "cookie": "^0.7.1",
+    "cookie-signature": "^1.0.6",
+    "cors": "^2.8.5",
+    "cross-spawn": "^7.0.6",
+    "data-view-buffer": "^1.0.2",
+    "data-view-byte-length": "^1.0.2",
+    "data-view-byte-offset": "^1.0.1",
+    "debug": "^4.4.1",
+    "dedent": "^1.7.0",
+    "deep-is": "^0.1.4",
+    "deepmerge": "^4.3.1",
+    "define-data-property": "^1.1.4",
+    "define-properties": "^1.2.1",
+    "delayed-stream": "^1.0.0",
+    "depd": "^2.0.0",
+    "destroy": "^1.2.0",
+    "detect-newline": "^3.1.0",
+    "dir-glob": "^3.0.1",
+    "doctrine": "^3.0.0",
+    "dunder-proto": "^1.0.1",
+    "duplexify": "^4.1.3",
+    "eastasianwidth": "^0.2.0",
+    "ecdsa-sig-formatter": "^1.0.11",
+    "ee-first": "^1.1.1",
+    "electron-to-chromium": "^1.5.214",
+    "emittery": "^0.13.1",
+    "emoji-regex": "^8.0.0",
+    "encodeurl": "^2.0.0",
+    "end-of-stream": "^1.4.5",
+    "error-ex": "^1.3.2",
+    "es-abstract": "^1.24.0",
+    "es-define-property": "^1.0.1",
+    "es-errors": "^1.3.0",
+    "es-object-atoms": "^1.1.1",
+    "es-set-tostringtag": "^2.1.0",
+    "es-shim-unscopables": "^1.1.0",
+    "es-to-primitive": "^1.3.0",
+    "escalade": "^3.2.0",
+    "escape-html": "^1.0.3",
+    "escape-string-regexp": "^4.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-module-utils": "^2.12.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-scope": "^5.1.1",
+    "eslint-visitor-keys": "^3.4.3",
+    "espree": "^9.6.1",
+    "esprima": "^4.0.1",
+    "esquery": "^1.6.0",
+    "esrecurse": "^4.3.0",
+    "estraverse": "^4.3.0",
+    "esutils": "^2.0.3",
+    "etag": "^1.8.1",
+    "event-target-shim": "^5.0.1",
+    "execa": "^5.1.1",
+    "exit-x": "^0.2.2",
+    "expect": "^30.1.2",
+    "express": "^4.21.2",
+    "extend": "^3.0.2",
+    "farmhash-modern": "^1.1.0",
+    "fast-deep-equal": "^3.1.3",
+    "fast-glob": "^3.3.3",
+    "fast-json-stable-stringify": "^2.1.0",
+    "fast-levenshtein": "^2.0.6",
+    "fast-xml-parser": "^4.5.3",
+    "fastq": "^1.19.1",
+    "faye-websocket": "^0.11.4",
+    "fb-watchman": "^2.0.2",
+    "file-entry-cache": "^6.0.1",
+    "fill-range": "^7.1.1",
+    "finalhandler": "^1.3.1",
+    "find-up": "^5.0.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.4.0",
+    "firebase-functions-test": "^3.4.1",
+    "flat-cache": "^3.2.0",
+    "flatted": "^3.3.3",
+    "for-each": "^0.3.5",
+    "foreground-child": "^3.3.1",
+    "form-data": "^2.5.5",
+    "forwarded": "^0.2.0",
+    "fresh": "^0.5.2",
+    "fs.realpath": "^1.0.0",
+    "function-bind": "^1.1.2",
+    "function.prototype.name": "^1.1.8",
+    "functional-red-black-tree": "^1.0.1",
+    "functions-have-names": "^1.2.3",
+    "gaxios": "^6.7.1",
+    "gcp-metadata": "^6.1.1",
+    "gensync": "^1.0.0-beta.2",
+    "get-caller-file": "^2.0.5",
+    "get-intrinsic": "^1.3.0",
+    "get-package-type": "^0.1.0",
+    "get-proto": "^1.0.1",
+    "get-stream": "^6.0.1",
+    "get-symbol-description": "^1.1.0",
+    "glob": "^10.4.5",
+    "glob-parent": "^6.0.2",
+    "globals": "^13.24.0",
+    "globalthis": "^1.0.4",
+    "globby": "^11.1.0",
+    "google-auth-library": "^9.15.1",
+    "google-gax": "^4.6.1",
+    "google-logging-utils": "^0.0.2",
+    "gopd": "^1.2.0",
+    "graceful-fs": "^4.2.11",
+    "graphemer": "^1.4.0",
+    "gtoken": "^7.1.0",
+    "has-bigints": "^1.1.0",
+    "has-flag": "^4.0.0",
+    "has-property-descriptors": "^1.0.2",
+    "has-proto": "^1.2.0",
+    "has-symbols": "^1.1.0",
+    "has-tostringtag": "^1.0.2",
+    "hasown": "^2.0.2",
+    "html-entities": "^2.6.0",
+    "html-escaper": "^2.0.2",
+    "http-errors": "^2.0.0",
+    "http-parser-js": "^0.5.10",
+    "http-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^7.0.6",
+    "human-signals": "^2.1.0",
+    "iconv-lite": "^0.4.24",
+    "ignore": "^5.3.2",
+    "import-fresh": "^3.3.1",
+    "import-local": "^3.2.0",
+    "imurmurhash": "^0.1.4",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "internal-slot": "^1.1.0",
+    "ipaddr.js": "^1.9.1",
+    "is-array-buffer": "^3.0.5",
+    "is-arrayish": "^0.2.1",
+    "is-async-function": "^2.1.1",
+    "is-bigint": "^1.1.0",
+    "is-boolean-object": "^1.2.2",
+    "is-callable": "^1.2.7",
+    "is-core-module": "^2.16.1",
+    "is-data-view": "^1.0.2",
+    "is-date-object": "^1.1.0",
+    "is-extglob": "^2.1.1",
+    "is-finalizationregistry": "^1.1.1",
+    "is-fullwidth-code-point": "^3.0.0",
+    "is-generator-fn": "^2.1.0",
+    "is-generator-function": "^1.1.0",
+    "is-glob": "^4.0.3",
+    "is-map": "^2.0.3",
+    "is-negative-zero": "^2.0.3",
+    "is-number": "^7.0.0",
+    "is-number-object": "^1.1.1",
+    "is-path-inside": "^3.0.3",
+    "is-regex": "^1.2.1",
+    "is-set": "^2.0.3",
+    "is-shared-array-buffer": "^1.0.4",
+    "is-stream": "^2.0.1",
+    "is-string": "^1.1.1",
+    "is-symbol": "^1.1.1",
+    "is-typed-array": "^1.1.15",
+    "is-weakmap": "^2.0.2",
+    "is-weakref": "^1.1.1",
+    "is-weakset": "^2.0.4",
+    "isarray": "^2.0.5",
+    "isexe": "^2.0.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "istanbul-lib-instrument": "^6.0.3",
+    "istanbul-lib-report": "^3.0.1",
+    "istanbul-lib-source-maps": "^5.0.6",
+    "istanbul-reports": "^3.2.0",
+    "jackspeak": "^3.4.3",
+    "jest": "^30.1.3",
+    "jest-changed-files": "^30.0.5",
+    "jest-circus": "^30.1.3",
+    "jest-cli": "^30.1.3",
+    "jest-config": "^30.1.3",
+    "jest-diff": "^30.1.2",
+    "jest-docblock": "^30.0.1",
+    "jest-each": "^30.1.0",
+    "jest-environment-node": "^30.1.2",
+    "jest-haste-map": "^30.1.0",
+    "jest-leak-detector": "^30.1.0",
+    "jest-matcher-utils": "^30.1.2",
+    "jest-message-util": "^30.1.0",
+    "jest-mock": "^30.0.5",
+    "jest-pnp-resolver": "^1.2.3",
+    "jest-regex-util": "^30.0.1",
+    "jest-resolve": "^30.1.3",
+    "jest-resolve-dependencies": "^30.1.3",
+    "jest-runner": "^30.1.3",
+    "jest-runtime": "^30.1.3",
+    "jest-snapshot": "^30.1.2",
+    "jest-util": "^30.0.5",
+    "jest-validate": "^30.1.0",
+    "jest-watcher": "^30.1.3",
+    "jest-worker": "^30.1.0",
+    "jose": "^4.15.9",
+    "js-tokens": "^4.0.0",
+    "js-yaml": "^4.1.0",
+    "jsesc": "^3.1.0",
+    "json-bigint": "^1.0.0",
+    "json-buffer": "^3.0.1",
+    "json-parse-even-better-errors": "^2.3.1",
+    "json-schema-traverse": "^0.4.1",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
+    "json5": "^2.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwa": "^2.0.1",
+    "jwks-rsa": "^3.2.0",
+    "jws": "^4.0.0",
+    "keyv": "^4.5.4",
+    "leven": "^3.1.0",
+    "levn": "^0.4.1",
+    "limiter": "^1.1.5",
+    "lines-and-columns": "^1.2.4",
+    "locate-path": "^6.0.0",
+    "lodash": "^4.17.21",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.includes": "^4.3.0",
+    "lodash.isboolean": "^3.0.3",
+    "lodash.isinteger": "^4.0.4",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.isstring": "^4.0.1",
+    "lodash.merge": "^4.6.2",
+    "lodash.once": "^4.1.1",
+    "long": "^5.3.2",
+    "lru-cache": "^6.0.0",
+    "lru-memoizer": "^2.3.0",
+    "make-dir": "^4.0.0",
+    "makeerror": "^1.0.12",
+    "math-intrinsics": "^1.1.0",
+    "media-typer": "^0.3.0",
+    "merge-descriptors": "^1.0.3",
+    "merge-stream": "^2.0.0",
+    "merge2": "^1.4.1",
+    "methods": "^1.1.2",
+    "micromatch": "^4.0.8",
+    "mime": "^3.0.0",
+    "mime-db": "^1.52.0",
+    "mime-types": "^2.1.35",
+    "mimic-fn": "^2.1.0",
+    "minimatch": "^3.1.2",
+    "minimist": "^1.2.8",
+    "minipass": "^7.1.2",
+    "ms": "^2.1.3",
+    "napi-postinstall": "^0.3.3",
+    "natural-compare": "^1.4.0",
+    "natural-compare-lite": "^1.4.0",
+    "negotiator": "^0.6.3",
+    "node-forge": "^1.3.1",
+    "node-int64": "^0.4.0",
+    "node-releases": "^2.0.20",
+    "normalize-path": "^3.0.0",
+    "npm-run-path": "^4.0.1",
+    "object-assign": "^4.1.1",
+    "object-hash": "^3.0.0",
+    "object-inspect": "^1.13.4",
+    "object-keys": "^1.1.1",
+    "object.assign": "^4.1.7",
+    "object.fromentries": "^2.0.8",
+    "object.groupby": "^1.0.3",
+    "object.values": "^1.2.1",
+    "on-finished": "^2.4.1",
+    "once": "^1.4.0",
+    "onetime": "^5.1.2",
+    "optionator": "^0.9.4",
+    "own-keys": "^1.0.1",
+    "p-limit": "^3.1.0",
+    "p-locate": "^5.0.0",
+    "p-try": "^2.2.0",
+    "package-json-from-dist": "^1.0.1",
+    "parent-module": "^1.0.1",
+    "parse-json": "^5.2.0",
+    "parseurl": "^1.3.3",
+    "path-exists": "^4.0.0",
+    "path-is-absolute": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-parse": "^1.0.7",
+    "path-scurry": "^1.11.1",
+    "path-to-regexp": "^0.1.12",
+    "path-type": "^4.0.0",
+    "picocolors": "^1.1.1",
+    "picomatch": "^2.3.1",
+    "pirates": "^4.0.7",
+    "pkg-dir": "^4.2.0",
+    "possible-typed-array-names": "^1.1.0",
+    "prelude-ls": "^1.2.1",
+    "pretty-format": "^30.0.5",
+    "proto3-json-serializer": "^2.0.2",
+    "protobufjs": "^7.5.4",
+    "proxy-addr": "^2.0.7",
+    "punycode": "^2.3.1",
+    "pure-rand": "^7.0.1",
+    "qs": "^6.13.0",
+    "queue-microtask": "^1.2.3",
+    "range-parser": "^1.2.1",
+    "raw-body": "^2.5.2",
+    "react-is": "^18.3.1",
+    "readable-stream": "^3.6.2",
+    "reflect.getprototypeof": "^1.0.10",
+    "regexp.prototype.flags": "^1.5.4",
+    "require-directory": "^2.1.1",
+    "resolve": "^1.22.10",
+    "resolve-cwd": "^3.0.0",
+    "resolve-from": "^4.0.0",
+    "retry": "^0.13.1",
+    "retry-request": "^7.0.2",
+    "reusify": "^1.1.0",
+    "rimraf": "^3.0.2",
+    "run-parallel": "^1.2.0",
+    "safe-array-concat": "^1.1.3",
+    "safe-buffer": "^5.2.1",
+    "safe-push-apply": "^1.0.0",
+    "safe-regex-test": "^1.1.0",
+    "safer-buffer": "^2.1.2",
+    "semver": "^7.7.2",
+    "send": "^0.19.0",
+    "serve-static": "^1.16.2",
+    "set-function-length": "^1.2.2",
+    "set-function-name": "^2.0.2",
+    "set-proto": "^1.0.0",
+    "setprototypeof": "^1.2.0",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "side-channel": "^1.1.0",
+    "side-channel-list": "^1.0.0",
+    "side-channel-map": "^1.0.1",
+    "side-channel-weakmap": "^1.0.2",
+    "signal-exit": "^4.1.0",
+    "slash": "^3.0.0",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.13",
+    "sprintf-js": "^1.0.3",
+    "stack-utils": "^2.0.6",
+    "statuses": "^2.0.1",
+    "stop-iteration-iterator": "^1.1.0",
+    "stream-events": "^1.0.5",
+    "stream-shift": "^1.0.3",
+    "string_decoder": "^1.3.0",
+    "string-length": "^4.0.2",
+    "string-width": "^4.2.3",
+    "string-width-cjs": "^4.2.3",
+    "string.prototype.trim": "^1.2.10",
+    "string.prototype.trimend": "^1.0.9",
+    "string.prototype.trimstart": "^1.0.8",
+    "strip-ansi": "^6.0.1",
+    "strip-ansi-cjs": "^6.0.1",
+    "strip-bom": "^4.0.0",
+    "strip-final-newline": "^2.0.0",
+    "strip-json-comments": "^3.1.1",
+    "strnum": "^1.1.2",
+    "stubs": "^3.0.0",
+    "supports-color": "^7.2.0",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "synckit": "^0.11.11",
+    "teeny-request": "^9.0.0",
+    "test-exclude": "^6.0.0",
+    "text-table": "^0.2.0",
+    "tmpl": "^1.0.5",
+    "to-regex-range": "^5.0.1",
+    "toidentifier": "^1.0.1",
+    "tr46": "^0.0.3",
+    "ts-deepmerge": "^2.0.7",
+    "tsconfig-paths": "^3.15.0",
+    "tslib": "^2.8.1",
+    "tsutils": "^3.21.0",
+    "type-check": "^0.4.0",
+    "type-detect": "^4.0.8",
+    "type-fest": "^0.20.2",
+    "type-is": "^1.6.18",
+    "typed-array-buffer": "^1.0.3",
+    "typed-array-byte-length": "^1.0.3",
+    "typed-array-byte-offset": "^1.0.4",
+    "typed-array-length": "^1.0.7",
+    "typescript": "^5.9.2",
+    "unbox-primitive": "^1.1.0",
+    "undici-types": "^6.21.0",
+    "unpipe": "^1.0.0",
+    "unrs-resolver": "^1.11.1",
+    "update-browserslist-db": "^1.1.3",
+    "uri-js": "^4.4.1",
+    "util-deprecate": "^1.0.2",
+    "utils-merge": "^1.0.1",
+    "v8-to-istanbul": "^9.3.0",
+    "vary": "^1.1.2",
+    "walker": "^1.0.8",
+    "webidl-conversions": "^3.0.1",
+    "websocket-driver": "^0.7.4",
+    "websocket-extensions": "^0.1.4",
+    "whatwg-url": "^5.0.0",
+    "which": "^2.0.2",
+    "which-boxed-primitive": "^1.1.1",
+    "which-builtin-type": "^1.2.1",
+    "which-collection": "^1.0.2",
+    "which-typed-array": "^1.1.19",
+    "word-wrap": "^1.2.5",
+    "wrap-ansi": "^7.0.0",
+    "wrap-ansi-cjs": "^7.0.0",
+    "wrappy": "^1.0.2",
+    "write-file-atomic": "^5.0.1",
+    "y18n": "^5.0.8",
+    "yallist": "^4.0.0",
+    "yargs": "^17.7.2",
+    "yargs-parser": "^21.1.1",
+    "yocto-queue": "^0.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "seed": "ts-node src/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/express": "^4",
+    "typescript": "^5",
+    "ts-node": "^10.9.0"
+  }
+}
+[debug] [2025-09-17T09:52:23.850Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-09-17T09:52:23.852Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-09-17T09:52:23.868Z] Found firebase-functions binary at 'D:\client\retailshop\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8544
+
+[debug] [2025-09-17T09:52:26.136Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-09-17T09:52:30.216Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-17T09:52:30.216Z] > authorizing via signed-in user (rds087@gmail.com)
+[debug] [2025-09-17T09:52:30.217Z] [iam] checking project retail-shop-9bc30 for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-09-17T09:52:30.218Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:30.218Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:30.219Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions [none]
+[debug] [2025-09-17T09:52:30.219Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions x-goog-quota-user=projects/retail-shop-9bc30
+[debug] [2025-09-17T09:52:30.220Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-09-17T09:52:31.523Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions 200
+[debug] [2025-09-17T09:52:31.523Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-09-17T09:52:31.524Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:31.524Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:31.525Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances pageSize=100&pageToken=
+[debug] [2025-09-17T09:52:33.088Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances 200
+[debug] [2025-09-17T09:52:33.089Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/retail-shop-9bc30/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\client\retailshop\functions (109.64 KB) for uploading 
+[debug] [2025-09-17T09:52:33.312Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:33.312Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:33.313Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/retail-shop-9bc30/locations/-/functions [none]
+[debug] [2025-09-17T09:52:34.325Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/retail-shop-9bc30/locations/-/functions 200
+[debug] [2025-09-17T09:52:34.325Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/retail-shop-9bc30/locations/-/functions {}
+[debug] [2025-09-17T09:52:34.326Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:34.327Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:34.327Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-09-17T09:52:35.930Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/-/functions 200
+[debug] [2025-09-17T09:52:35.931Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/-/functions {"functions":[{"name":"projects/retail-shop-9bc30/locations/us-central1/functions/runDailyReconcile","buildConfig":{"build":"projects/101062122561/locations/us-central1/builds/f03bb992-7fb7-43ab-8465-9dd0eaaf1a9b","runtime":"nodejs22","entryPoint":"runDailyReconcile","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"runDailyReconcile/function-source.zip","generation":"1757238455859950"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"runDailyReconcile/function-source.zip","generation":"1757238455859950"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2025-09-07T09:47:44.683829055Z","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true","firebase-functions-hash":"1ef09fd8e9f1a75cc9d4239f557f8f81d5299253"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/retail-shop-9bc30/locations/us-central1/services/rundailyreconcile for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/runDailyReconcile","createTime":"2025-09-07T09:47:36.076430732Z","satisfiesPzi":true},{"name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"build":"projects/101062122561/locations/us-central1/builds/aa73375f-43c2-4966-901d-c0a7fca67478","runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"maxInstanceCount":3,"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2025-09-07T15:54:33.957055225Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"41033483e2c108060b6446cf4562880c3d0d50fb"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","createTime":"2025-09-07T09:46:25.268357832Z","satisfiesPzi":true},{"name":"projects/retail-shop-9bc30/locations/us-central1/functions/generateDailySummary","buildConfig":{"build":"projects/101062122561/locations/us-central1/builds/f03bb992-7fb7-43ab-8465-9dd0eaaf1a9b","runtime":"nodejs22","entryPoint":"generateDailySummary","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"generateDailySummary/function-source.zip","generation":"1757238455947146"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"generateDailySummary/function-source.zip","generation":"1757238455947146"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2025-09-07T09:47:45.309819235Z","labels":{"deployment-tool":"cli-firebase","deployment-scheduled":"true","firebase-functions-hash":"1ef09fd8e9f1a75cc9d4239f557f8f81d5299253"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/retail-shop-9bc30/locations/us-central1/services/generatedailysummary for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/generateDailySummary","createTime":"2025-09-07T09:47:36.159275032Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-09-17T09:52:35.942Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:35.942Z] Checked if tokens are valid: true, expires at: 1758106003313
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-09-17T09:52:35.943Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:35.943Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:35.944Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-09-17T09:52:35.944Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/pubsub.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/101062122561
+[debug] [2025-09-17T09:52:35.944Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/pubsub.googleapis.com:generateServiceIdentity {}
+[debug] [2025-09-17T09:52:35.948Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-09-17T09:52:35.948Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/eventarc.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/101062122561
+[debug] [2025-09-17T09:52:35.949Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/eventarc.googleapis.com:generateServiceIdentity {}
+[debug] [2025-09-17T09:52:37.803Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-09-17T09:52:37.804Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-101062122561@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"116935008897215844096"}}
+[debug] [2025-09-17T09:52:37.831Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-09-17T09:52:37.831Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/101062122561/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-101062122561@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"103589122994274912943"}}
+[debug] [2025-09-17T09:52:37.835Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:37.836Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:37.836Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 [none]
+[debug] [2025-09-17T09:52:39.209Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 200
+[debug] [2025-09-17T09:52:39.210Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30 {"projectNumber":"101062122561","projectId":"retail-shop-9bc30","lifecycleState":"ACTIVE","name":"retail-shop","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-06T14:43:43.270485Z"}
+[debug] [2025-09-17T09:52:39.211Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.212Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.212Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/101062122561 [none]
+[debug] [2025-09-17T09:52:39.600Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/101062122561 403
+[debug] [2025-09-17T09:52:39.601Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/101062122561 {"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561","consumer":"projects/101062122561","service":"compute.googleapis.com","serviceTitle":"Compute Engine API","containerInfo":"101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}}
+[debug] [2025-09-17T09:52:39.603Z] unable to look up default compute service account. Falling back to 101062122561-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561","consumer":"projects/101062122561","service":"compute.googleapis.com","serviceTitle":"Compute Engine API","containerInfo":"101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/101062122561 had HTTP Error: 403, Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2025-09-17T09:52:39.603Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.604Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.604Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/101062122561 [none]
+[debug] [2025-09-17T09:52:39.919Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/101062122561 403
+[debug] [2025-09-17T09:52:39.920Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/101062122561 {"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"consumer":"projects/101062122561","containerInfo":"101062122561","service":"compute.googleapis.com","serviceTitle":"Compute Engine API","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}}
+[debug] [2025-09-17T09:52:39.920Z] unable to look up default compute service account. Falling back to 101062122561-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"consumer":"projects/101062122561","containerInfo":"101062122561","service":"compute.googleapis.com","serviceTitle":"Compute Engine API","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/101062122561 had HTTP Error: 403, Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2025-09-17T09:52:39.921Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.922Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:39.922Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/101062122561 [none]
+[debug] [2025-09-17T09:52:40.230Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/101062122561 403
+[debug] [2025-09-17T09:52:40.231Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/101062122561 {"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561","serviceTitle":"Compute Engine API","service":"compute.googleapis.com","consumer":"projects/101062122561","containerInfo":"101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}}
+[debug] [2025-09-17T09:52:40.232Z] unable to look up default compute service account. Falling back to 101062122561-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561","serviceTitle":"Compute Engine API","service":"compute.googleapis.com","consumer":"projects/101062122561","containerInfo":"101062122561"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/101062122561 had HTTP Error: 403, Compute Engine API has not been used in project 101062122561 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=101062122561 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2025-09-17T09:52:40.234Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:40.234Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:40.235Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/retail-shop-9bc30/billingInfo [none]
+[debug] [2025-09-17T09:52:41.688Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/retail-shop-9bc30/billingInfo 200
+[debug] [2025-09-17T09:52:41.688Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/retail-shop-9bc30/billingInfo {"name":"projects/retail-shop-9bc30/billingInfo","projectId":"retail-shop-9bc30","billingAccountName":"billingAccounts/01494A-0401BB-83D18D","billingEnabled":true}
+[debug] [2025-09-17T09:52:41.691Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:41.692Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:41.692Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-09-17T09:52:43.144Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-09-17T09:52:43.144Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com/8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip?GoogleAccessId=service-101062122561@gcf-admin-robot.iam.gserviceaccount.com&Expires=1758104562&Signature=TTV8fISgQdjiR6HQUKGmJgNcUVK0Tp2X11%2Bvb49Fz0UTItrnlYpwspG%2BA%2BiT5djCRjrgMN8l5fzS3EJ0S%2BUM8pqXhhXBCMHZi2e7ElWaN2pKDn7HX29jKbviUsI0GRIXH5ffZCf181crVBA%2B%2FQ46jNoHdFk%2BsparODfS7HA6Fm4J00YJSgkq9cJhHzsfNoDNpEtFaC3P8lX%2FK1burSH5cCIO5%2Fvq5Pyq8iiQSL8PYBN3eSjjgG36QhXdWWkBZyOF9nKnWZd3wpaoeSpHLyrHwJLVCsqQfx48C8MvwIasYFSrjKy1zPnh8WM33j%2FlSPyK%2FrklM3M%2FA9pq4ZJXIeC%2BTw%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com","object":"8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip"}}
+[debug] [2025-09-17T09:52:43.146Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com/8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip GoogleAccessId=service-101062122561%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1758104562&Signature=TTV8fISgQdjiR6HQUKGmJgNcUVK0Tp2X11%2Bvb49Fz0UTItrnlYpwspG%2BA%2BiT5djCRjrgMN8l5fzS3EJ0S%2BUM8pqXhhXBCMHZi2e7ElWaN2pKDn7HX29jKbviUsI0GRIXH5ffZCf181crVBA%2B%2FQ46jNoHdFk%2BsparODfS7HA6Fm4J00YJSgkq9cJhHzsfNoDNpEtFaC3P8lX%2FK1burSH5cCIO5%2Fvq5Pyq8iiQSL8PYBN3eSjjgG36QhXdWWkBZyOF9nKnWZd3wpaoeSpHLyrHwJLVCsqQfx48C8MvwIasYFSrjKy1zPnh8WM33j%2FlSPyK%2FrklM3M%2FA9pq4ZJXIeC%2BTw%3D%3D
+[debug] [2025-09-17T09:52:43.146Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com/8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip [stream]
+[debug] [2025-09-17T09:52:44.474Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com/8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip 200
+[debug] [2025-09-17T09:52:44.480Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com/8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: updating Node.js 22 (2nd Gen) function api(us-central1)... 
+[debug] [2025-09-17T09:52:44.488Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:44.488Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:44.489Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions/api updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels
+[debug] [2025-09-17T09:52:44.495Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions/api {"name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-uploads-101062122561.us-central1.cloudfunctions.appspot.com","object":"8fd0bb48-cd1d-4e05-88ec-c980ec53d663.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"}}
+[debug] [2025-09-17T09:52:47.080Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions/api 200
+[debug] [2025-09-17T09:52:47.080Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/functions/api {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2025-09-17T09:52:47.082Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:47.082Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:47.083Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:52:48.528Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:52:48.529Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:52:49.045Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:52:49.045Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:49.046Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:49.046Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:52:50.362Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:52:50.363Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:52:51.377Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:52:51.378Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:51.378Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:51.378Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:52:52.696Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:52:52.697Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:52:54.706Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:52:54.707Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:54.707Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:52:54.708Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:52:55.999Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:52:56.000Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:00.007Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:00.008Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:00.010Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:00.011Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:01.329Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:01.330Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:09.338Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:09.339Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:09.340Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:09.341Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:10.774Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:10.775Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:20.777Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:20.778Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:20.779Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:20.780Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:22.236Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:22.237Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:32.250Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:32.251Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:32.251Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:32.252Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:33.731Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:33.732Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:43.737Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:43.739Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:43.739Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:43.740Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:44.348Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:44.349Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:53:54.367Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:53:54.369Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:54.369Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:53:54.371Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:53:55.749Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:53:55.749Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:54:05.751Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:54:05.751Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:05.752Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:05.752Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:54:07.209Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:54:07.211Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","message":"Updating Cloud Run service","state":"IN_PROGRESS","resource":"projects/retail-shop-9bc30/locations/us-central1/services/api","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/api?project=retail-shop-9bc30","stateMessages":[{"severity":"INFO","type":"CloudRunServiceNewRevisionTrafficInfo","message":"A new revision will be deployed serving with 100% traffic."}]}],"sourceToken":"Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ==","operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:54:07.213Z] Got source token Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ== for region us-central1
+[debug] [2025-09-17T09:54:17.225Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:54:17.226Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:17.226Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:17.227Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:54:18.666Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:54:18.666Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","message":"Updating Cloud Run service","state":"IN_PROGRESS","resource":"projects/retail-shop-9bc30/locations/us-central1/services/api","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/api?project=retail-shop-9bc30","stateMessages":[{"severity":"INFO","type":"CloudRunServiceNewRevisionTrafficInfo","message":"A new revision will be deployed serving with 100% traffic."}]}],"sourceToken":"Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ==","operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":false}
+[debug] [2025-09-17T09:54:18.667Z] Got source token Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ== for region us-central1
+[debug] [2025-09-17T09:54:28.675Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-09-17T09:54:28.676Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:28.677Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:28.678Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 [none]
+[debug] [2025-09-17T09:54:30.061Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 200
+[debug] [2025-09-17T09:54:30.062Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87 {"name":"projects/retail-shop-9bc30/locations/us-central1/operations/operation-1758102765348-63efc32cea5e9-79ad5cfb-11d1bf87","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-09-17T09:52:46.554657075Z","endTime":"2025-09-17T09:54:21.628068687Z","target":"projects/retail-shop-9bc30/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1757260397445401"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00003-vep","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cloudfunctions","firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/b740b1fe-6d5d-4067-a712-671c2bc12942?project=101062122561"},{"name":"SERVICE","message":"Updating Cloud Run service","state":"COMPLETE","resource":"projects/retail-shop-9bc30/locations/us-central1/services/api","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/api?project=retail-shop-9bc30","stateMessages":[{"severity":"INFO","type":"CloudRunServiceNewRevisionTrafficInfo","message":"A new revision will be deployed serving with 100% traffic."}]}],"sourceToken":"Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ==","operationType":"UPDATE_FUNCTION","buildName":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/retail-shop-9bc30/locations/us-central1/functions/api","buildConfig":{"build":"projects/101062122561/locations/us-central1/builds/b740b1fe-6d5d-4067-a712-671c2bc12942","runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-101062122561-us-central1","object":"api/function-source.zip","generation":"1758102766418887"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/retail-shop-9bc30/serviceAccounts/101062122561-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/retail-shop-9bc30/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"retail-shop-9bc30\",\"storageBucket\":\"retail-shop-9bc30.firebasestorage.app\"}","GCLOUD_PROJECT":"retail-shop-9bc30","EVENTARC_CLOUD_EVENT_SOURCE":"projects/retail-shop-9bc30/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"maxInstanceCount":3,"ingressSettings":"ALLOW_ALL","uri":"https://api-5q2y3672rq-uc.a.run.app","serviceAccountEmail":"101062122561-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00004-yol","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2025-09-17T09:52:46.556839485Z","labels":{"firebase-functions-hash":"960d099aa83064e4a9f8423b90ff2b77eed954e3","deployment-tool":"cli-firebase"},"environment":"GEN_2","url":"https://us-central1-retail-shop-9bc30.cloudfunctions.net/api","createTime":"2025-09-07T09:46:25.268357832Z","satisfiesPzi":true}}
+[debug] [2025-09-17T09:54:30.065Z] Got source token Cldwcm9qZWN0cy8xMDEwNjIxMjI1NjEvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9iNzQwYjFmZS02ZDVkLTQwNjctYTcxMi02NzFjMmJjMTI5NDISa3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3JldGFpbC1zaG9wLTliYzMwL2djZi1hcnRpZmFjdHMvcmV0YWlsLS1zaG9wLS05YmMzMF9fdXMtLWNlbnRyYWwxX19hcGk6dmVyc2lvbl8xGMG4lr74AiI+cHJvamVjdHMvcmV0YWlsLXNob3AtOWJjMzAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy9hcGkqDAi9iqrGBhCI2uWmAjIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ== for region us-central1
+[info] +  functions[api(us-central1)] Successful update operation. 
+[debug] [2025-09-17T09:54:30.082Z] Total Function Deployment time: 105584
+[debug] [2025-09-17T09:54:30.083Z] 1 Functions Deployed
+[debug] [2025-09-17T09:54:30.083Z] 0 Functions Errored
+[debug] [2025-09-17T09:54:30.084Z] 0 Function Deployments Aborted
+[debug] [2025-09-17T09:54:30.084Z] Average Function Deployment time: 105583
+[info] Function URL (api(us-central1)): https://api-5q2y3672rq-uc.a.run.app
+[debug] [2025-09-17T09:54:30.199Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:30.199Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:54:30.200Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2025-09-17T09:54:31.615Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2025-09-17T09:54:31.616Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts {"name":"projects/retail-shop-9bc30/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2025-09-07T09:46:34.065121Z","updateTime":"2025-09-17T09:54:01.756657Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"604800s"}}},"sizeBytes":"137895740","vulnerabilityScanningConfig":{"lastEnableTime":"2025-09-07T09:46:25.458870567Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/retail-shop-9bc30/gcf-artifacts"}
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/retail-shop-9bc30/overview
+[debug] [2025-09-17T09:59:30.197Z] ----------------------------------------------------------------------
+[debug] [2025-09-17T09:59:30.200Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rentla.in\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js functions:shell
+[debug] [2025-09-17T09:59:30.201Z] CLI Version:   14.16.0
+[debug] [2025-09-17T09:59:30.201Z] Platform:      win32
+[debug] [2025-09-17T09:59:30.201Z] Node Version:  v22.14.0
+[debug] [2025-09-17T09:59:30.201Z] Time:          Wed Sep 17 2025 15:29:30 GMT+0530 (India Standard Time)
+[debug] [2025-09-17T09:59:30.202Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-17T09:59:30.468Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-17T09:59:30.468Z] > authorizing via signed-in user (rds087@gmail.com)
+[debug] [2025-09-17T09:59:30.469Z] [iam] checking project retail-shop-9bc30 for permissions ["firebase.projects.get"]
+[debug] [2025-09-17T09:59:30.470Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:59:30.470Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:59:30.471Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions [none]
+[debug] [2025-09-17T09:59:30.471Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions x-goog-quota-user=projects/retail-shop-9bc30
+[debug] [2025-09-17T09:59:30.471Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-09-17T09:59:31.930Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions 200
+[debug] [2025-09-17T09:59:31.930Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/retail-shop-9bc30:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-09-17T09:59:31.931Z] Emulator locator file path: C:\Users\Rentla.in\AppData\Local\Temp\hub-retail-shop-9bc30.json
+[debug] [2025-09-17T09:59:31.937Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-09-17T09:59:34.970Z] defaultcredentials: writing to file C:\Users\Rentla.in\AppData\Roaming\firebase\rds087_gmail_com_application_default_credentials.json
+[debug] [2025-09-17T09:59:34.980Z] DEBUG: Setting GAC to C:\Users\Rentla.in\AppData\Roaming\firebase\rds087_gmail_com_application_default_credentials.json
+[debug] [2025-09-17T09:59:34.981Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:59:34.981Z] Checked if tokens are valid: true, expires at: 1758106003313
+[debug] [2025-09-17T09:59:34.981Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig [none]
+[debug] [2025-09-17T09:59:35.628Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig 200
+[debug] [2025-09-17T09:59:35.629Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/retail-shop-9bc30/adminSdkConfig {"projectId":"retail-shop-9bc30","storageBucket":"retail-shop-9bc30.firebasestorage.app"}
+[debug] [2025-09-17T09:59:35.650Z] [functions] Watching "D:\client\retailshop\functions" for Cloud Functions...
+[debug] [2025-09-17T09:59:35.655Z] Validating nodejs source
+[debug] [2025-09-17T09:59:36.803Z] > [functions] package.json contents: {
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@google-cloud/vision": "^4",
+    "abort-controller": "^3.0.0",
+    "accepts": "^1.3.8",
+    "acorn": "^8.15.0",
+    "acorn-jsx": "^5.3.2",
+    "agent-base": "^7.1.4",
+    "ajv": "^6.12.6",
+    "ansi-escapes": "^4.3.2",
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "anymatch": "^3.1.3",
+    "argparse": "^2.0.1",
+    "array-buffer-byte-length": "^1.0.2",
+    "array-flatten": "^1.1.1",
+    "array-includes": "^3.1.9",
+    "array-union": "^2.1.0",
+    "array.prototype.findlastindex": "^1.2.6",
+    "array.prototype.flat": "^1.3.3",
+    "array.prototype.flatmap": "^1.3.3",
+    "arraybuffer.prototype.slice": "^1.0.4",
+    "arrify": "^2.0.1",
+    "async-function": "^1.0.0",
+    "async-retry": "^1.3.3",
+    "asynckit": "^0.4.0",
+    "available-typed-arrays": "^1.0.7",
+    "babel-jest": "^30.1.2",
+    "babel-plugin-istanbul": "^7.0.1",
+    "babel-plugin-jest-hoist": "^30.0.1",
+    "babel-preset-current-node-syntax": "^1.2.0",
+    "babel-preset-jest": "^30.0.1",
+    "balanced-match": "^1.0.2",
+    "base64-js": "^1.5.1",
+    "bignumber.js": "^9.3.1",
+    "body-parser": "^1.20.3",
+    "brace-expansion": "^1.1.12",
+    "braces": "^3.0.3",
+    "browserslist": "^4.25.4",
+    "bser": "^2.1.1",
+    "buffer-equal-constant-time": "^1.0.1",
+    "buffer-from": "^1.1.2",
+    "bytes": "^3.1.2",
+    "call-bind": "^1.0.8",
+    "call-bind-apply-helpers": "^1.0.2",
+    "call-bound": "^1.0.4",
+    "callsites": "^3.1.0",
+    "camelcase": "^5.3.1",
+    "caniuse-lite": "^1.0.30001741",
+    "chalk": "^4.1.2",
+    "char-regex": "^1.0.2",
+    "ci-info": "^4.3.0",
+    "cjs-module-lexer": "^2.1.0",
+    "cliui": "^8.0.1",
+    "co": "^4.6.0",
+    "collect-v8-coverage": "^1.0.2",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "combined-stream": "^1.0.8",
+    "concat-map": "^0.0.1",
+    "content-disposition": "^0.5.4",
+    "content-type": "^1.0.5",
+    "convert-source-map": "^2.0.0",
+    "cookie": "^0.7.1",
+    "cookie-signature": "^1.0.6",
+    "cors": "^2.8.5",
+    "cross-spawn": "^7.0.6",
+    "data-view-buffer": "^1.0.2",
+    "data-view-byte-length": "^1.0.2",
+    "data-view-byte-offset": "^1.0.1",
+    "debug": "^4.4.1",
+    "dedent": "^1.7.0",
+    "deep-is": "^0.1.4",
+    "deepmerge": "^4.3.1",
+    "define-data-property": "^1.1.4",
+    "define-properties": "^1.2.1",
+    "delayed-stream": "^1.0.0",
+    "depd": "^2.0.0",
+    "destroy": "^1.2.0",
+    "detect-newline": "^3.1.0",
+    "dir-glob": "^3.0.1",
+    "doctrine": "^3.0.0",
+    "dunder-proto": "^1.0.1",
+    "duplexify": "^4.1.3",
+    "eastasianwidth": "^0.2.0",
+    "ecdsa-sig-formatter": "^1.0.11",
+    "ee-first": "^1.1.1",
+    "electron-to-chromium": "^1.5.214",
+    "emittery": "^0.13.1",
+    "emoji-regex": "^8.0.0",
+    "encodeurl": "^2.0.0",
+    "end-of-stream": "^1.4.5",
+    "error-ex": "^1.3.2",
+    "es-abstract": "^1.24.0",
+    "es-define-property": "^1.0.1",
+    "es-errors": "^1.3.0",
+    "es-object-atoms": "^1.1.1",
+    "es-set-tostringtag": "^2.1.0",
+    "es-shim-unscopables": "^1.1.0",
+    "es-to-primitive": "^1.3.0",
+    "escalade": "^3.2.0",
+    "escape-html": "^1.0.3",
+    "escape-string-regexp": "^4.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-module-utils": "^2.12.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-scope": "^5.1.1",
+    "eslint-visitor-keys": "^3.4.3",
+    "espree": "^9.6.1",
+    "esprima": "^4.0.1",
+    "esquery": "^1.6.0",
+    "esrecurse": "^4.3.0",
+    "estraverse": "^4.3.0",
+    "esutils": "^2.0.3",
+    "etag": "^1.8.1",
+    "event-target-shim": "^5.0.1",
+    "execa": "^5.1.1",
+    "exit-x": "^0.2.2",
+    "expect": "^30.1.2",
+    "express": "^4.21.2",
+    "extend": "^3.0.2",
+    "farmhash-modern": "^1.1.0",
+    "fast-deep-equal": "^3.1.3",
+    "fast-glob": "^3.3.3",
+    "fast-json-stable-stringify": "^2.1.0",
+    "fast-levenshtein": "^2.0.6",
+    "fast-xml-parser": "^4.5.3",
+    "fastq": "^1.19.1",
+    "faye-websocket": "^0.11.4",
+    "fb-watchman": "^2.0.2",
+    "file-entry-cache": "^6.0.1",
+    "fill-range": "^7.1.1",
+    "finalhandler": "^1.3.1",
+    "find-up": "^5.0.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.4.0",
+    "firebase-functions-test": "^3.4.1",
+    "flat-cache": "^3.2.0",
+    "flatted": "^3.3.3",
+    "for-each": "^0.3.5",
+    "foreground-child": "^3.3.1",
+    "form-data": "^2.5.5",
+    "forwarded": "^0.2.0",
+    "fresh": "^0.5.2",
+    "fs.realpath": "^1.0.0",
+    "function-bind": "^1.1.2",
+    "function.prototype.name": "^1.1.8",
+    "functional-red-black-tree": "^1.0.1",
+    "functions-have-names": "^1.2.3",
+    "gaxios": "^6.7.1",
+    "gcp-metadata": "^6.1.1",
+    "gensync": "^1.0.0-beta.2",
+    "get-caller-file": "^2.0.5",
+    "get-intrinsic": "^1.3.0",
+    "get-package-type": "^0.1.0",
+    "get-proto": "^1.0.1",
+    "get-stream": "^6.0.1",
+    "get-symbol-description": "^1.1.0",
+    "glob": "^10.4.5",
+    "glob-parent": "^6.0.2",
+    "globals": "^13.24.0",
+    "globalthis": "^1.0.4",
+    "globby": "^11.1.0",
+    "google-auth-library": "^9.15.1",
+    "google-gax": "^4.6.1",
+    "google-logging-utils": "^0.0.2",
+    "gopd": "^1.2.0",
+    "graceful-fs": "^4.2.11",
+    "graphemer": "^1.4.0",
+    "gtoken": "^7.1.0",
+    "has-bigints": "^1.1.0",
+    "has-flag": "^4.0.0",
+    "has-property-descriptors": "^1.0.2",
+    "has-proto": "^1.2.0",
+    "has-symbols": "^1.1.0",
+    "has-tostringtag": "^1.0.2",
+    "hasown": "^2.0.2",
+    "html-entities": "^2.6.0",
+    "html-escaper": "^2.0.2",
+    "http-errors": "^2.0.0",
+    "http-parser-js": "^0.5.10",
+    "http-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^7.0.6",
+    "human-signals": "^2.1.0",
+    "iconv-lite": "^0.4.24",
+    "ignore": "^5.3.2",
+    "import-fresh": "^3.3.1",
+    "import-local": "^3.2.0",
+    "imurmurhash": "^0.1.4",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "internal-slot": "^1.1.0",
+    "ipaddr.js": "^1.9.1",
+    "is-array-buffer": "^3.0.5",
+    "is-arrayish": "^0.2.1",
+    "is-async-function": "^2.1.1",
+    "is-bigint": "^1.1.0",
+    "is-boolean-object": "^1.2.2",
+    "is-callable": "^1.2.7",
+    "is-core-module": "^2.16.1",
+    "is-data-view": "^1.0.2",
+    "is-date-object": "^1.1.0",
+    "is-extglob": "^2.1.1",
+    "is-finalizationregistry": "^1.1.1",
+    "is-fullwidth-code-point": "^3.0.0",
+    "is-generator-fn": "^2.1.0",
+    "is-generator-function": "^1.1.0",
+    "is-glob": "^4.0.3",
+    "is-map": "^2.0.3",
+    "is-negative-zero": "^2.0.3",
+    "is-number": "^7.0.0",
+    "is-number-object": "^1.1.1",
+    "is-path-inside": "^3.0.3",
+    "is-regex": "^1.2.1",
+    "is-set": "^2.0.3",
+    "is-shared-array-buffer": "^1.0.4",
+    "is-stream": "^2.0.1",
+    "is-string": "^1.1.1",
+    "is-symbol": "^1.1.1",
+    "is-typed-array": "^1.1.15",
+    "is-weakmap": "^2.0.2",
+    "is-weakref": "^1.1.1",
+    "is-weakset": "^2.0.4",
+    "isarray": "^2.0.5",
+    "isexe": "^2.0.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "istanbul-lib-instrument": "^6.0.3",
+    "istanbul-lib-report": "^3.0.1",
+    "istanbul-lib-source-maps": "^5.0.6",
+    "istanbul-reports": "^3.2.0",
+    "jackspeak": "^3.4.3",
+    "jest": "^30.1.3",
+    "jest-changed-files": "^30.0.5",
+    "jest-circus": "^30.1.3",
+    "jest-cli": "^30.1.3",
+    "jest-config": "^30.1.3",
+    "jest-diff": "^30.1.2",
+    "jest-docblock": "^30.0.1",
+    "jest-each": "^30.1.0",
+    "jest-environment-node": "^30.1.2",
+    "jest-haste-map": "^30.1.0",
+    "jest-leak-detector": "^30.1.0",
+    "jest-matcher-utils": "^30.1.2",
+    "jest-message-util": "^30.1.0",
+    "jest-mock": "^30.0.5",
+    "jest-pnp-resolver": "^1.2.3",
+    "jest-regex-util": "^30.0.1",
+    "jest-resolve": "^30.1.3",
+    "jest-resolve-dependencies": "^30.1.3",
+    "jest-runner": "^30.1.3",
+    "jest-runtime": "^30.1.3",
+    "jest-snapshot": "^30.1.2",
+    "jest-util": "^30.0.5",
+    "jest-validate": "^30.1.0",
+    "jest-watcher": "^30.1.3",
+    "jest-worker": "^30.1.0",
+    "jose": "^4.15.9",
+    "js-tokens": "^4.0.0",
+    "js-yaml": "^4.1.0",
+    "jsesc": "^3.1.0",
+    "json-bigint": "^1.0.0",
+    "json-buffer": "^3.0.1",
+    "json-parse-even-better-errors": "^2.3.1",
+    "json-schema-traverse": "^0.4.1",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
+    "json5": "^2.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwa": "^2.0.1",
+    "jwks-rsa": "^3.2.0",
+    "jws": "^4.0.0",
+    "keyv": "^4.5.4",
+    "leven": "^3.1.0",
+    "levn": "^0.4.1",
+    "limiter": "^1.1.5",
+    "lines-and-columns": "^1.2.4",
+    "locate-path": "^6.0.0",
+    "lodash": "^4.17.21",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.includes": "^4.3.0",
+    "lodash.isboolean": "^3.0.3",
+    "lodash.isinteger": "^4.0.4",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.isstring": "^4.0.1",
+    "lodash.merge": "^4.6.2",
+    "lodash.once": "^4.1.1",
+    "long": "^5.3.2",
+    "lru-cache": "^6.0.0",
+    "lru-memoizer": "^2.3.0",
+    "make-dir": "^4.0.0",
+    "makeerror": "^1.0.12",
+    "math-intrinsics": "^1.1.0",
+    "media-typer": "^0.3.0",
+    "merge-descriptors": "^1.0.3",
+    "merge-stream": "^2.0.0",
+    "merge2": "^1.4.1",
+    "methods": "^1.1.2",
+    "micromatch": "^4.0.8",
+    "mime": "^3.0.0",
+    "mime-db": "^1.52.0",
+    "mime-types": "^2.1.35",
+    "mimic-fn": "^2.1.0",
+    "minimatch": "^3.1.2",
+    "minimist": "^1.2.8",
+    "minipass": "^7.1.2",
+    "ms": "^2.1.3",
+    "napi-postinstall": "^0.3.3",
+    "natural-compare": "^1.4.0",
+    "natural-compare-lite": "^1.4.0",
+    "negotiator": "^0.6.3",
+    "node-forge": "^1.3.1",
+    "node-int64": "^0.4.0",
+    "node-releases": "^2.0.20",
+    "normalize-path": "^3.0.0",
+    "npm-run-path": "^4.0.1",
+    "object-assign": "^4.1.1",
+    "object-hash": "^3.0.0",
+    "object-inspect": "^1.13.4",
+    "object-keys": "^1.1.1",
+    "object.assign": "^4.1.7",
+    "object.fromentries": "^2.0.8",
+    "object.groupby": "^1.0.3",
+    "object.values": "^1.2.1",
+    "on-finished": "^2.4.1",
+    "once": "^1.4.0",
+    "onetime": "^5.1.2",
+    "optionator": "^0.9.4",
+    "own-keys": "^1.0.1",
+    "p-limit": "^3.1.0",
+    "p-locate": "^5.0.0",
+    "p-try": "^2.2.0",
+    "package-json-from-dist": "^1.0.1",
+    "parent-module": "^1.0.1",
+    "parse-json": "^5.2.0",
+    "parseurl": "^1.3.3",
+    "path-exists": "^4.0.0",
+    "path-is-absolute": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-parse": "^1.0.7",
+    "path-scurry": "^1.11.1",
+    "path-to-regexp": "^0.1.12",
+    "path-type": "^4.0.0",
+    "picocolors": "^1.1.1",
+    "picomatch": "^2.3.1",
+    "pirates": "^4.0.7",
+    "pkg-dir": "^4.2.0",
+    "possible-typed-array-names": "^1.1.0",
+    "prelude-ls": "^1.2.1",
+    "pretty-format": "^30.0.5",
+    "proto3-json-serializer": "^2.0.2",
+    "protobufjs": "^7.5.4",
+    "proxy-addr": "^2.0.7",
+    "punycode": "^2.3.1",
+    "pure-rand": "^7.0.1",
+    "qs": "^6.13.0",
+    "queue-microtask": "^1.2.3",
+    "range-parser": "^1.2.1",
+    "raw-body": "^2.5.2",
+    "react-is": "^18.3.1",
+    "readable-stream": "^3.6.2",
+    "reflect.getprototypeof": "^1.0.10",
+    "regexp.prototype.flags": "^1.5.4",
+    "require-directory": "^2.1.1",
+    "resolve": "^1.22.10",
+    "resolve-cwd": "^3.0.0",
+    "resolve-from": "^4.0.0",
+    "retry": "^0.13.1",
+    "retry-request": "^7.0.2",
+    "reusify": "^1.1.0",
+    "rimraf": "^3.0.2",
+    "run-parallel": "^1.2.0",
+    "safe-array-concat": "^1.1.3",
+    "safe-buffer": "^5.2.1",
+    "safe-push-apply": "^1.0.0",
+    "safe-regex-test": "^1.1.0",
+    "safer-buffer": "^2.1.2",
+    "semver": "^7.7.2",
+    "send": "^0.19.0",
+    "serve-static": "^1.16.2",
+    "set-function-length": "^1.2.2",
+    "set-function-name": "^2.0.2",
+    "set-proto": "^1.0.0",
+    "setprototypeof": "^1.2.0",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "side-channel": "^1.1.0",
+    "side-channel-list": "^1.0.0",
+    "side-channel-map": "^1.0.1",
+    "side-channel-weakmap": "^1.0.2",
+    "signal-exit": "^4.1.0",
+    "slash": "^3.0.0",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.13",
+    "sprintf-js": "^1.0.3",
+    "stack-utils": "^2.0.6",
+    "statuses": "^2.0.1",
+    "stop-iteration-iterator": "^1.1.0",
+    "stream-events": "^1.0.5",
+    "stream-shift": "^1.0.3",
+    "string_decoder": "^1.3.0",
+    "string-length": "^4.0.2",
+    "string-width": "^4.2.3",
+    "string-width-cjs": "^4.2.3",
+    "string.prototype.trim": "^1.2.10",
+    "string.prototype.trimend": "^1.0.9",
+    "string.prototype.trimstart": "^1.0.8",
+    "strip-ansi": "^6.0.1",
+    "strip-ansi-cjs": "^6.0.1",
+    "strip-bom": "^4.0.0",
+    "strip-final-newline": "^2.0.0",
+    "strip-json-comments": "^3.1.1",
+    "strnum": "^1.1.2",
+    "stubs": "^3.0.0",
+    "supports-color": "^7.2.0",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "synckit": "^0.11.11",
+    "teeny-request": "^9.0.0",
+    "test-exclude": "^6.0.0",
+    "text-table": "^0.2.0",
+    "tmpl": "^1.0.5",
+    "to-regex-range": "^5.0.1",
+    "toidentifier": "^1.0.1",
+    "tr46": "^0.0.3",
+    "ts-deepmerge": "^2.0.7",
+    "tsconfig-paths": "^3.15.0",
+    "tslib": "^2.8.1",
+    "tsutils": "^3.21.0",
+    "type-check": "^0.4.0",
+    "type-detect": "^4.0.8",
+    "type-fest": "^0.20.2",
+    "type-is": "^1.6.18",
+    "typed-array-buffer": "^1.0.3",
+    "typed-array-byte-length": "^1.0.3",
+    "typed-array-byte-offset": "^1.0.4",
+    "typed-array-length": "^1.0.7",
+    "typescript": "^5.9.2",
+    "unbox-primitive": "^1.1.0",
+    "undici-types": "^6.21.0",
+    "unpipe": "^1.0.0",
+    "unrs-resolver": "^1.11.1",
+    "update-browserslist-db": "^1.1.3",
+    "uri-js": "^4.4.1",
+    "util-deprecate": "^1.0.2",
+    "utils-merge": "^1.0.1",
+    "v8-to-istanbul": "^9.3.0",
+    "vary": "^1.1.2",
+    "walker": "^1.0.8",
+    "webidl-conversions": "^3.0.1",
+    "websocket-driver": "^0.7.4",
+    "websocket-extensions": "^0.1.4",
+    "whatwg-url": "^5.0.0",
+    "which": "^2.0.2",
+    "which-boxed-primitive": "^1.1.1",
+    "which-builtin-type": "^1.2.1",
+    "which-collection": "^1.0.2",
+    "which-typed-array": "^1.1.19",
+    "word-wrap": "^1.2.5",
+    "wrap-ansi": "^7.0.0",
+    "wrap-ansi-cjs": "^7.0.0",
+    "wrappy": "^1.0.2",
+    "write-file-atomic": "^5.0.1",
+    "y18n": "^5.0.8",
+    "yallist": "^4.0.0",
+    "yargs": "^17.7.2",
+    "yargs-parser": "^21.1.1",
+    "yocto-queue": "^0.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "seed": "ts-node src/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/express": "^4",
+    "typescript": "^5",
+    "ts-node": "^10.9.0"
+  }
+}
+[debug] [2025-09-17T09:59:36.804Z] Building nodejs source
+[debug] [2025-09-17T09:59:36.804Z] Failed to find version of module node: reached end of search path D:\client\retailshop\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2025-09-17T09:59:36.807Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-09-17T09:59:36.816Z] Found firebase-functions binary at 'D:\client\retailshop\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8624
+
+[debug] [2025-09-17T09:59:38.511Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2025-09-17T09:59:42.645Z] [functions] Loaded functions definitions from source: api.
+[debug] [2025-09-17T09:59:42.646Z] [functions[us-central1-api]] http function initialized (http://127.0.0.1:5001/retail-shop-9bc30/us-central1/api).
+[info] i  functions: Loaded functions: api 
+[warn] !  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc, tasks 
